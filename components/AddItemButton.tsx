@@ -15,7 +15,7 @@ interface IAddItemButtonProps {
 
 // Todo POST changes when added
 
-export default ({ onAdd }: IAddItemButtonProps) => {
+const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
 
   const { fetch: fetchBuyableItems, buyableItems }: any = useFetchBuyableItems()
 
@@ -27,6 +27,7 @@ export default ({ onAdd }: IAddItemButtonProps) => {
 
   useEffect(() => {
     fetchBuyableItems(searchTermDebounce)
+// eslint-disable-next-line
   }, [searchTerm])
 
   const handleChange = (item: (IBuyableItem & { value: string })) => {
@@ -37,7 +38,7 @@ export default ({ onAdd }: IAddItemButtonProps) => {
     }
   }
 
-
+        // eslint-disable-next-line react/display-name
   const AutoCompleteItem = forwardRef<HTMLDivElement, IBuyableItem>(
     ({ category, fluid, _id, name, ...others }: IBuyableItem, ref) => (
       <div ref={ref} {...others} key={_id}>
@@ -109,3 +110,5 @@ export default ({ onAdd }: IAddItemButtonProps) => {
 
   </InputWrapper>
 }
+
+export default AddItemButton

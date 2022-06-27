@@ -15,7 +15,7 @@ export interface IList {
     description: string
 }
 
-export default () => {
+const List = () => {
 
     const list: IList = useListContext()
     console.log("list", list)
@@ -50,7 +50,7 @@ export default () => {
               console.error(err)
             })
         }
-    }, [listItems])
+    }, [listItems, list._id])
 
     //
     if (!list) return null
@@ -73,3 +73,5 @@ export default () => {
         </div>
     </div>
 }
+
+export default List

@@ -14,7 +14,7 @@ type TCreateItemModalProps = {
   }
 }
 
-export default ({open, close, onSubmit, defaultValues}: TCreateItemModalProps) => {
+const CreateItemButton = ({open, close, onSubmit, defaultValues}: TCreateItemModalProps) => {
   return (
       <Modal
         opened={open}
@@ -94,3 +94,5 @@ export default ({open, close, onSubmit, defaultValues}: TCreateItemModalProps) =
       </Modal>
   );
 }
+
+export default CreateItemButton

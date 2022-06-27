@@ -11,7 +11,7 @@ type TNewListForm = {
     editable: boolean,
 }
 
-export default () => {
+const NewListForm = () => {
   const router = useRouter()
 
     return <div className={classes.container}>
@@ -63,3 +63,5 @@ export default () => {
       </GenericForm>
     </div>
 }
+
+export default NewListForm

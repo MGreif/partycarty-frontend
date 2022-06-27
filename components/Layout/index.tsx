@@ -1,7 +1,7 @@
 import { AppShell, Navbar, Header } from '@mantine/core';
 import Navigation from './Navigation';
 
-export default function ({children}: any) {
+function Layout ({children}: any) {
   return (
     <AppShell
       padding="md"
@@ -15,3 +15,5 @@ export default function ({children}: any) {
     </AppShell>
   );
 }
+
+export default Layout
