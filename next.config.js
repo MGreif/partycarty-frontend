@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
 }
+module.exports = nextConfig
+
 
 const ContentSecurityPolicy = `
   default-src 'self';
@@ -43,4 +45,3 @@ module.exports = {
   },
 }
 
-module.exports = nextConfig
