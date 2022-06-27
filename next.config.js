@@ -7,7 +7,7 @@ module.exports = nextConfig
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'https://www.googletagmanager.com' 'nonce-script-ga';
+  script-src 'self' 'nonce-script-ga' 'nonce-script-ga2'; script-src-elem 'self' https://www.googletagmanager.com 'nonce-script-ga';
   style-src 'self' 'unsafe-inline';
   font-src 'self';  
 `
