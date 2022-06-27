@@ -28,7 +28,7 @@ function App(props: AppProps) {
         <meta httpEquiv="Reply-to" content="Mika@greif.me" />
         <meta name="expires" content="" />
         <meta name="revisit-after" content="15 days" />
-        <link rel="icon" href="images/favicon.ico" />
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
 
       <MantineProvider
