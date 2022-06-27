@@ -9,7 +9,16 @@ export default class _Document extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFKW4F2QCQ"></script>
+          <script dangerouslySetInnerHTML={{__html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-GFKW4F2QCQ');
+          `}}/>
+        </Head>
         <body>
           <Main />
           <NextScript />

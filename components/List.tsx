@@ -43,8 +43,8 @@ const List = () => {
                 quantity: 1,
                 votes: 0
             }
-            createListItem(list._id, newListItem).then(({ body }: { body: IListItem }) => {
-              const item = {...body, buyableItem}
+            createListItem(list._id, newListItem).then(({ body }: { body: any }) => {
+              const item = {...{...newListItem, _id: body.listitemId}, buyableItem}
               setListItems([item, ...listItems])
             }).catch((err) => {
               console.error(err)

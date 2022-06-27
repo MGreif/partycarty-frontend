@@ -43,10 +43,8 @@ const ListItem: React.FC<IListItemProps> = ({listItem, onCheck}) => {
     const handleVote = () => {
       toggleVoteInSessionStorage(list._id, listItem._id)
     }
-    console.log("listitem", listItem)
-
     return <Group className={classes.container} position="apart" noWrap spacing="xl">
-      <div className={classes.category}>{listItem.buyableItem.category.toString().substring(0,1)}</div>
+      <div className={classes.category}><span>{listItem.buyableItem.category.toString().substring(0,1)}</span></div>
       <div className={classes.name}>
         <Text>{listItem.buyableItem.name}</Text>
         <Text size="xs" color="dimmed">

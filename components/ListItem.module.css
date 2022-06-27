@@ -3,7 +3,7 @@
     border-radius: 10px;
     padding: 0.5em;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 
@@ -14,6 +14,9 @@
     background-color: gray;
     color: white;
     padding: 1em 0.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .name {
@@ -25,6 +28,7 @@
 .votes {
     min-width: 50px;
     max-width: 110px;
+    margin-left: auto;
 }
 
 .checkbox {

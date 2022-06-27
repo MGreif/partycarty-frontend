@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container > * {
+  width: fit-content;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18pt;
+}
