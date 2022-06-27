@@ -4,7 +4,7 @@ import { IList } from "../components/List";
 export const ListContext = React.createContext<IList>({
     description: "",
     editable: false,
-    id: "",
+    _id: "",
     lastEdited: new Date(),
     items: []
 })
