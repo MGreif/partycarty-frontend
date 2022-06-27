@@ -26,6 +26,10 @@ const securityHeaders = [
     value: 'nosniff'
   },
   {
+    key: 'Strict-Transport-Security',
+    value: 'max-age=26298000; includeSubDomains'
+  },
+  {
     key: 'Content-Security-Policy',
     value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
   }
