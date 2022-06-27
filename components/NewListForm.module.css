@@ -1,0 +1,9 @@
+.container {
+    padding: 1em;
+    border-radius: 5px;
+    border: 2px solid gray;
+    width: 70vw;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}

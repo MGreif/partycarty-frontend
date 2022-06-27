@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+}
+
+.container > button {
+    margin-left: 2em;
+    flex: 1;
+    animation: slidein 0.3s ease-out;
+}
+
+.container > div {
+    flex: 18;
+}
+
+@keyframes slidein {
+    0% {
+        flex: 0;
+    }
+    100% {
+        flex: 1;
+    }
+}
+
+.autocompleteAdd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.autocompleteAdd > span {
+  font-size: 2em;
+  color: #858585;
+}
