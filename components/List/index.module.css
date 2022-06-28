@@ -6,12 +6,8 @@
 }
 
 .list {
-    margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5em;
-    border: 2px solid rgb(255, 209, 209);
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .list > * {

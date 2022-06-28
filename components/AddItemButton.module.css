@@ -31,3 +31,13 @@
   font-size: 2em;
   color: #858585;
 }
+
+.autocomplete {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.autocomplete > div > div > input {
+  font-size: 1.3em;
+  padding: 1.3em 0.7em
+}

@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+.header {
+  background-color: #009CDF;
+  color: white;
+
+}
+
 .container > * {
   width: fit-content;
 }

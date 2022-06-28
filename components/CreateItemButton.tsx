@@ -1,9 +1,9 @@
-import { Checkbox } from "@mantine/core";
-import { Button, Group, Input, InputWrapper, Modal } from "@mantine/core"
-import { Select } from "@mantine/core";
-import { randomString } from "../libs/mockGenerator";
-import { GenericForm } from "./GenericForm";
-import { CATEGORIES } from "./ListItem";
+import { Checkbox } from '@mantine/core'
+import { Button, Group, Input, InputWrapper, Modal } from '@mantine/core'
+import { Select } from '@mantine/core'
+import { randomString } from '../libs/mockGenerator'
+import { GenericForm } from './GenericForm'
+import { CATEGORIES } from './List'
 
 type TCreateItemModalProps = {
   open: boolean
@@ -14,42 +14,43 @@ type TCreateItemModalProps = {
   }
 }
 
-const CreateItemButton = ({open, close, onSubmit, defaultValues}: TCreateItemModalProps) => {
+const CreateItemButton = ({
+  open,
+  close,
+  onSubmit,
+  defaultValues,
+}: TCreateItemModalProps) => {
   return (
-      <Modal
-        opened={open}
-        onClose={() => close()}
-        title="Create a new Item!"
-      >
+    <Modal opened={open} onClose={() => close()} title="Create a new Item!">
       <GenericForm
-        initialValues={
-          {
-            category: null,
-            fluid: false,
-            name: null,
-            ...defaultValues
+        initialValues={{
+          category: null,
+          fluid: false,
+          name: null,
+          ...defaultValues,
         }}
         validation={(values: any) => {
           const errors: any = {}
-          if (!values.name) errors.name = "Please specify a name"
-          if (!values.category) errors.category = "Please specify a category"
+          if (!values.name) errors.name = 'Please specify a name'
+          if (!values.category) errors.category = 'Please specify a category'
           return errors
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           onSubmit(values)
           resetForm()
           setSubmitting(false)
-        }}>
-          {({
+        }}
+      >
+        {({
           values,
           errors,
           touched,
           handleChange,
           handleBlur,
-          isSubmitting
+          isSubmitting,
         }: any) => (
           <>
-          <InputWrapper label="Name" >
+            <InputWrapper label="Name">
               <Input
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -58,16 +59,16 @@ const CreateItemButton = ({open, close, onSubmit, defaultValues}: TCreateItemMod
                 name="name"
               />
               {errors.name && touched.name && errors.name}
-          </InputWrapper>
-          <InputWrapper label="category">
+            </InputWrapper>
+            <InputWrapper label="category">
               <Select
-                onChange={e => {
+                onChange={(e) => {
                   console.log(e)
                   handleChange({
                     target: {
-                      name: "category",
-                      value: e
-                    }
+                      name: 'category',
+                      value: e,
+                    },
                   })
                 }}
                 onBlur={handleBlur}
@@ -76,8 +77,8 @@ const CreateItemButton = ({open, close, onSubmit, defaultValues}: TCreateItemMod
                 data={Object.values(CATEGORIES)}
               />
               {errors.category && touched.category && errors.category}
-          </InputWrapper>
-          <InputWrapper label="Is Fluid">
+            </InputWrapper>
+            <InputWrapper label="Is Fluid">
               <Checkbox
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -85,14 +86,19 @@ const CreateItemButton = ({open, close, onSubmit, defaultValues}: TCreateItemMod
                 name="fluid"
               />
               {errors.fluid && touched.fluid && errors.fluid}
-          </InputWrapper>
-          <Button type="submit" disabled={isSubmitting} style={{margin: "1em 0"}}>Create</Button>
+            </InputWrapper>
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              style={{ margin: '1em 0' }}
+            >
+              Create
+            </Button>
           </>
-        )
-        }
+        )}
       </GenericForm>
-      </Modal>
-  );
+    </Modal>
+  )
 }
 
 export default CreateItemButton
