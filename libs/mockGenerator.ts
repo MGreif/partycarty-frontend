@@ -1,5 +1,5 @@
 import { IList } from "../components/List"
-import { ECategory, IBuyableItem, IListItem } from "../components/ListItem"
+import { CATEGORIES, IBuyableItem, IListItem } from "../components/ListItem"
 
 export const randomBoolean = (): boolean => Math.random() > 0.5
 
@@ -21,7 +21,7 @@ export const randomInt = (max: number) => Math.floor(Math.random() * max)
 
 export const mockBuyableItem = (): IBuyableItem => {
     return {
-        category: ECategory.SNACKS,
+        category: CATEGORIES.BABY,
         fluid: randomBoolean(),
         _id: randomString(5, "buyableItem-id"),
         name: randomString(30, "name"),

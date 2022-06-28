@@ -31,7 +31,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+    value: process.env.NODE_ENV === "production" ? ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim() : ""
   }
 ]
 

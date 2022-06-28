@@ -3,7 +3,7 @@ import { Button, Group, Input, InputWrapper, Modal } from "@mantine/core"
 import { Select } from "@mantine/core";
 import { randomString } from "../libs/mockGenerator";
 import { GenericForm } from "./GenericForm";
-import { ECategory } from "./ListItem";
+import { CATEGORIES } from "./ListItem";
 
 type TCreateItemModalProps = {
   open: boolean
@@ -73,7 +73,7 @@ const CreateItemButton = ({open, close, onSubmit, defaultValues}: TCreateItemMod
                 onBlur={handleBlur}
                 value={values.category}
                 name="category"
-                data={Object.keys(ECategory).filter((v) => isNaN(Number(v))).map(cat => ({ value: cat, label: cat.toLocaleLowerCase()}))}
+                data={Object.values(CATEGORIES)}
               />
               {errors.category && touched.category && errors.category}
           </InputWrapper>

@@ -18,22 +18,38 @@ export interface IListItemProps {
     onCheck: any
 }
 
-
 export interface IBuyableItem {
     _id: string,
     name: string,
-    category: ECategory
+    category: TCategory
     picture?: string
     fluid: boolean
 }
 
-export enum ECategory {
-    FRUITS = "FRUITS",
-    VEGETABLES = "VEGETABLES",
-    ALCOHOL = "ALCOHOL",
-    DRINKS = "DRINKS",
-    SNACKS = "SNACKS",
-    FROZEN = "FROZEN"
+type TCategory = {
+  value: string,
+  label: string
+}
+
+export const CATEGORIES = {
+  "BABY": { value: "BABY", label: "Babies"},
+  "BAKERY": { value: "BAKERY", label: "Bakery"},
+  "BEAUTY_PERSONAL_HYGIENE": { value: "BEAUTY_PERSONAL_HYGIENE", label: "Beauty and personal hygiene"},
+  "BEER_WINE_SPIRITS": { value: "BEER_WINE_SPIRITS", label: "Alcohol, wine and beer"},
+  "CANS_JARS": { value: "CANS_JARS", label: "Cans and jars"},
+  "CEREAL_MUESLI": { value: "CEREAL_MUESLI", label: "Cereal"},
+  "CLOTHING": { value: "CLOTHING", label: "Clothing"},
+  "COFFEE_TEA": { value: "COFFEE_TEA", label: "Coffee and tea"},
+  "DAIRY_EGGS": { value: "DAIRY_EGGS", label: "Dairy and eggs"},
+  "ELECTRONICS_OFFICE": { value: "ELECTRONICS_OFFICE", label: "Electronics and office"},
+  "FISH_SEAFOOD": { value: "FISH_SEAFOOD", label: "Fish and seafood"},
+  "FROZEN": { value: "FROZEN", label: "Frozen Food"},
+  "FRUITS_VEGETABLES": { value: "FRUITS_VEGETABLES", label: "Fruits and vegetables"},
+  "HOUSE-CLEANING_PRODUCTS": { value: "HOUSE-CLEANING_PRODUCTS", label: "Cleaning"},
+  "MEAT_POULTRY": { value: "MEAT_POULTRY", label: "Meat and poultry"},
+  "OTHER": { value: "OTHER", label: "Other"},
+  "READY_MEALS": { value: "READY_MEALS", label: "Instant meals"},
+  "SNACKS_SWEETS": { value: "SNACKS_SWEETS", label: "Snacks"},
 }
 
 const ListItem: React.FC<IListItemProps> = ({listItem, onCheck}) => {
