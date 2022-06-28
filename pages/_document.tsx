@@ -10,13 +10,13 @@ export default class _Document extends Document {
     return (
       <Html>
         <Head>
-          <script async nonce="script-ga2" src="https://www.googletagmanager.com/gtag/js?id=G-GFKW4F2QCQ"></script>
+          <script async nonce="script-ga2" src="https://www.googletagmanager.com/gtag/js?id=G-6GXGD6L270"></script>
           <script nonce="script-ga" dangerouslySetInnerHTML={{__html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-GFKW4F2QCQ');
+            gtag('config', 'G-6GXGD6L270');
           `}}/>
         </Head>
         <body>
