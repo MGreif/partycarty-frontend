@@ -4,10 +4,9 @@ const nextConfig = {
 }
 module.exports = nextConfig
 
-
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'nonce-script-ga' 'nonce-script-ga2'; script-src-elem 'self' https://www.googletagmanager.com 'nonce-script-ga';
+  script-src 'self' 'nonce-script-ga' 'nonce-script-ga2'; script-src-elem 'self' https://www.googletagmanager.com 'nonce-script-ga' 'nonce-script-ga3';
   style-src 'self' 'unsafe-inline';
   font-src 'self';  
 `
@@ -15,27 +14,28 @@ const ContentSecurityPolicy = `
 const securityHeaders = [
   {
     key: 'X-XSS-Protection',
-    value: '1; mode=block'
+    value: '1; mode=block',
   },
   {
     key: 'X-Frame-Options',
-    value: 'SAMEORIGIN'
+    value: 'SAMEORIGIN',
   },
   {
     key: 'X-Content-Type-Options',
-    value: 'nosniff'
+    value: 'nosniff',
   },
   {
     key: 'Strict-Transport-Security',
-    value: 'max-age=26298000; includeSubDomains'
+    value: 'max-age=26298000; includeSubDomains',
   },
   {
     key: 'Content-Security-Policy',
-    value: process.env.NODE_ENV === "production" ? ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim() : ""
-  }
+    value:
+      process.env.NODE_ENV === 'production'
+        ? ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+        : '',
+  },
 ]
-
-
 
 module.exports = {
   async headers() {
@@ -48,4 +48,3 @@ module.exports = {
     ]
   },
 }
-
