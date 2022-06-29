@@ -7,7 +7,11 @@ const Header = () => {
     <HeaderMantine height={60} p="xs" className={classes.header}>
       <Container fluid className={classes.container}>
         <span className={classes.meta}>Beta</span>
-        <span className={classes.title}>PartyCarty - Shopping Lists</span>
+        <span className={classes.title}>
+          <a className={classes.link} href="/">
+            PartyCarty - Clever Shopping Lists
+          </a>
+        </span>
         <span className={classes.meta}>{p.version}</span>
       </Container>
     </HeaderMantine>

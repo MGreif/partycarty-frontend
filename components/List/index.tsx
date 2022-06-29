@@ -161,7 +161,9 @@ const List = () => {
         <div className={classes.listContainer}>
           <AddItemButton onAdd={addListItem} />
           <div className={classes.list}>
-            {listItems.length === 0 && <span>No Items</span>}
+            {listItems.length === 0 && (
+              <span className={classes.noItems}>No Items ...</span>
+            )}
             {Object.entries(CATEGORIES).map(([category, value]: [any, any]) => {
               return (
                 <SubList

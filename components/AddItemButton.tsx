@@ -98,11 +98,22 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
 
   const autocompleteItems = useMemo(
     () => [
-      ...buyableItems.map((x: IBuyableItem) => ({
-        ...x,
-        value: x.name,
-        fluid: x.fluid.toString(),
-      })),
+      ...buyableItems
+        .sort((a: IBuyableItem, b: IBuyableItem) => {
+          if (a.category < b.category) {
+            return -1
+          }
+          if (a.category > b.category) {
+            return 1
+          }
+          return 0
+        })
+        .map((x: IBuyableItem) => ({
+          ...x,
+          value: x.name,
+          fluid: x.fluid.toString(),
+          group: CATEGORIES[x.category].label,
+        })),
       { value: searchTerm || '', _id: 'add-button' },
     ],
     [buyableItems]
@@ -121,6 +132,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
         placeholder="Banana, Snickers, Whiskey ...."
         itemComponent={AutoCompleteItem}
         data={autocompleteItems}
+        maxLength={50}
         onItemSubmit={handleChange}
         onChange={(value: string) => setSearchTerm(value)}
         value={searchTerm}

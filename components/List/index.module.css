@@ -25,6 +25,11 @@
   width: 100%;
 }
 
+.noItems {
+  font-size: 20px;
+  margin: 0 auto;
+}
+
 @media (max-width: 880px) {
 	.listContainer {
     min-width: 300px;

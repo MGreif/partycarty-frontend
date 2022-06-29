@@ -40,7 +40,21 @@ function App(props: AppProps) {
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          /** Put your mantine theme override here */
+          colors: {
+            main: [
+              '#E7F5FF',
+              '#D0EBFF',
+              '#A5D8FF',
+              '#74C0FC',
+              '#4DABF7',
+              '#228BE6',
+              '#009CDF',
+              '#1C7ED6',
+              '#1971C2',
+              '#1864AB',
+            ],
+          },
+          primaryColor: 'main',
           colorScheme: 'light',
         }}
       >

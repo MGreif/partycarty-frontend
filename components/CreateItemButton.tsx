@@ -59,6 +59,7 @@ const CreateItemButton = ({
                 value={values.name}
                 placeholder="Jim Beam 400ML"
                 name="name"
+                maxLength={50}
               />
               {errors.name && touched.name && errors.name}
             </InputWrapper>

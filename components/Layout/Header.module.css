@@ -19,6 +19,11 @@
   font-size: 18pt;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
+
 
 @media (max-width: 880px) {
   .title {
