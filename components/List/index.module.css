@@ -13,3 +13,13 @@
 .list > * {
     margin: 0.5em 0;
 }
+
+.listContainer {
+  width: 500px;
+}
+
+@media (max-width: 880px) {
+	.listContainer {
+    width: 300px;
+  }
+}

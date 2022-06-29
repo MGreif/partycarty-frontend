@@ -131,7 +131,7 @@ const List = () => {
   return (
     <div className={classes.container}>
       <h1>{list.description}</h1>
-      <Container size={800} px={0}>
+      <Container className={classes.listContainer} px={0}>
         <AddItemButton onAdd={addListItem} />
         <div className={classes.list}>
           {listItems.length === 0 && <span>No Items</span>}

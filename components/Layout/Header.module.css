@@ -18,3 +18,14 @@
   font-weight: bold;
   font-size: 18pt;
 }
+
+
+@media (max-width: 880px) {
+  .title {
+    font-weight: bold;
+    font-size: 12pt;
+  }
+  .meta {
+    font-size: 8pt;
+  }
+}
