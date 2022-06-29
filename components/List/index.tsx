@@ -119,7 +119,13 @@ const List = () => {
         <div className={classes.list}>
           {listItems.length === 0 && <span>No Items</span>}
           {Object.entries(CATEGORIES).map(([category, value]: [any, any]) => {
-            return <SubList category={category} listItems={listItems} />
+            return (
+              <SubList
+                key={category}
+                category={category}
+                listItems={listItems}
+              />
+            )
           })}
         </div>
       </Container>
