@@ -19,7 +19,8 @@ export interface IListItem {
 
 export interface IListItemProps {
   listItem: IListItem
-  onCheck: any
+  onBuy: any
+  onDelete: any
 }
 
 export interface IBuyableItem {
@@ -30,7 +31,7 @@ export interface IBuyableItem {
   fluid: boolean
 }
 
-const ListItem: React.FC<IListItemProps> = ({ listItem, onCheck }) => {
+const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
   const list = useListContext()
   const userVotedForThisItem = checkIfVotedFor(list._id, listItem._id)
 
@@ -61,13 +62,13 @@ const ListItem: React.FC<IListItemProps> = ({ listItem, onCheck }) => {
       {listItem.tag && <span className={classes.tag}>tag: {listItem.tag}</span>}
       <Button
         className={classes.button}
-        onClick={onCheck}
+        onClick={() => onBuy(listItem._id)}
         style={{ backgroundColor: listItem.bought ? 'green' : '#D9D9D9' }}
       >
         Bought
       </Button>
       <Button
-        onClick={onCheck}
+        onClick={() => onDelete(listItem._id)}
         style={{
           backgroundColor: '#F7F7F7',
           color: 'black',

@@ -2,6 +2,7 @@ import { Container } from '@mantine/core'
 import { useEffect } from 'react'
 import { useCallback, useState } from 'react'
 import { createListItem } from '../../gateway/rest/createListItem'
+import { deleteListItem } from '../../gateway/rest/deleteListItem'
 import { useListContext } from '../../hooks/useListContext'
 import { randomString } from '../../libs/mockGenerator'
 import AddItemButton from '../AddItemButton'
@@ -107,6 +108,12 @@ const List = () => {
     [listItems, list._id]
   )
 
+  const handleDelete = (id: string) => {
+    deleteListItem(id).then(() => {
+      setListItems(listItems.filter((item) => item._id !== id))
+    })
+  }
+
   //
   if (!list) return null
 
@@ -123,6 +130,8 @@ const List = () => {
                 key={category}
                 category={category}
                 listItems={listItems}
+                onBuyListItem={console.log}
+                onDeleteListItem={handleDelete}
               />
             )
           })}

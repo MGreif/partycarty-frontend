@@ -5,9 +5,16 @@ import classes from './SubList.module.css'
 interface ISubListProps {
   listItems: IListItem[]
   category: keyof typeof CATEGORIES
+  onDeleteListItem: any
+  onBuyListItem: any
 }
 
-const SubList: React.FC<ISubListProps> = ({ listItems, category }) => {
+const SubList: React.FC<ISubListProps> = ({
+  listItems,
+  category,
+  onDeleteListItem,
+  onBuyListItem,
+}) => {
   const correspondingItems = listItems.filter(
     (item) => item.buyableItem.category === category
   )
@@ -23,7 +30,8 @@ const SubList: React.FC<ISubListProps> = ({ listItems, category }) => {
         <ListItem
           key={item.buyableItem.name}
           listItem={item}
-          onCheck={console.log}
+          onDelete={onDeleteListItem}
+          onBuy={onBuyListItem}
         />
       ))}
     </div>
