@@ -21,6 +21,8 @@
 
 @media (max-width: 880px) {
 	.listContainer {
-    width: 300px;
+    min-width: 300px;
+    width: 80vw;
+    max-width: 500px;
   }
 }
