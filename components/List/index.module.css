@@ -22,4 +22,7 @@
 	.listContainer {
     width: 300px;
   }
+  .list {
+    margin-top: 2em;
+  }
 }
