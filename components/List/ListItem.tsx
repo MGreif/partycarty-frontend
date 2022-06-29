@@ -49,11 +49,12 @@ const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
           Qty: {listItem.quantity}
         </Text>
       </div>
-      {listItem.votes && <div>{listItem.votes}</div>}
+      {listItem.votes && <div className={classes.votes}>{listItem.votes}</div>}
       <Button
         onClick={handleVote}
         className={classes.button}
         style={{
+          marginLeft: listItem.votes ? 0 : 'auto',
           backgroundColor: userVotedForThisItem ? 'green' : '#D9D9D9',
         }}
       >
