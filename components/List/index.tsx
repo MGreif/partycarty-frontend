@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useCallback, useState } from 'react'
 import { createListItem } from '../../gateway/rest/createListItem'
 import { deleteListItem } from '../../gateway/rest/deleteListItem'
+import { editListItem } from '../../gateway/rest/editListItem'
 import { useListContext } from '../../hooks/useListContext'
 import { randomString } from '../../libs/mockGenerator'
 import AddItemButton from '../AddItemButton'
@@ -114,6 +115,16 @@ const List = () => {
     })
   }
 
+  const handleBought = (id: string, value: boolean) => {
+    editListItem(id, { bought: value }).then((res) => {
+      const oldListItem = listItems.find((item) => item._id === id)
+      if (oldListItem) {
+        oldListItem.bought = value
+        setListItems([...listItems.filter((x) => x._id !== id), oldListItem])
+      }
+    })
+  }
+
   //
   if (!list) return null
 
@@ -130,7 +141,7 @@ const List = () => {
                 key={category}
                 category={category}
                 listItems={listItems}
-                onBuyListItem={console.log}
+                onBuyListItem={handleBought}
                 onDeleteListItem={handleDelete}
               />
             )
