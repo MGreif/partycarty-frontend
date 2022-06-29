@@ -5,10 +5,12 @@ const nextConfig = {
 module.exports = nextConfig
 
 const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self' 'nonce-script-ga' 'nonce-script-ga2'; script-src-elem 'self' https://www.googletagmanager.com 'nonce-script-ga' 'nonce-script-ga3';
+  default-src 'self'  ;
+  script-src 'self' *.googletagmanager.com *.googlesyndication.com 'nonce-script-ga' 'nonce-script-ga2'; script-src-elem 'self' https://www.googletagmanager.com 'nonce-script-ga' 'nonce-script-ga3';
   style-src 'self' 'unsafe-inline';
   font-src 'self';  
+  frame-src https://googleads.g.doubleclick.net;
+  connect-src *.google-analytics.com;
 `
 
 const securityHeaders = [
