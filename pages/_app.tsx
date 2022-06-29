@@ -1,24 +1,29 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from '../components/Layout'
-import Head from 'next/head';
-import { MantineProvider } from '@mantine/core';
-
+import Head from 'next/head'
+import { MantineProvider } from '@mantine/core'
 
 function App(props: AppProps) {
-  const { Component, pageProps } = props;
+  const { Component, pageProps } = props
 
   return (
     <>
       <Head>
-        <title>Carty | Clever Shopping List</title>
-        <meta name="name" content="Carty | Clever Shopping List" />
+        <title>PartyCarty | Clever Shopping List</title>
+        <meta name="name" content="PartyCarty | Clever Shopping List" />
         <meta httpEquiv="content-Type" content="text/html; utf-8" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta name="robots" content="INDEX,NOFOLLOW" />
         <meta httpEquiv="content-Language" content="en" />
-        <meta name="description" content="Free clever shopping lists for social events (parties, conventions, etc..)" />
-        <meta name="keywords" content="Free no-signup Shopping lists clever autofill social events online on the fly shopping list share" />
+        <meta
+          name="description"
+          content="Free clever shopping lists for social events (parties, conventions, etc..)"
+        />
+        <meta
+          name="keywords"
+          content="Free no-signup Shopping lists clever autofill social events online on the fly shopping list share"
+        />
         <meta name="author" content="Mika Greif" />
         <meta name="publisher" content="Mika Greif" />
         <meta name="copyright" content="Mika Greif" />
@@ -44,7 +49,7 @@ function App(props: AppProps) {
         </Layout>
       </MantineProvider>
     </>
-  );
+  )
 }
 
 export default App

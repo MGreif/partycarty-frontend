@@ -118,11 +118,9 @@ const List = () => {
         <AddItemButton onAdd={addListItem} />
         <div className={classes.list}>
           {listItems.length === 0 && <span>No Items</span>}
-          {Object.entries(CATEGORIES).map(
-            ([category, value]: [string, any]) => {
-              return <SubList category={category} listItems={listItems} />
-            }
-          )}
+          {Object.entries(CATEGORIES).map(([category, value]: [any, any]) => {
+            return <SubList category={category} listItems={listItems} />
+          })}
         </div>
       </Container>
     </div>
