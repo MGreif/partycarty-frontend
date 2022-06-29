@@ -59,7 +59,7 @@ const NewPage = () => {
             </p>
             <p>
               if you do not get an autofill options, please feel free to{' '}
-              <strong>add your product</strong> using the "+" button at the
+              <strong>add your product</strong> using the '+' button at the
               bottom of the autofill
             </p>
           </div>
