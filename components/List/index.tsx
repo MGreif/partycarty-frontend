@@ -114,41 +114,6 @@ const List = () => {
     [listItems, list._id]
   )
 
-  const handleDelete = (id: string) => {
-    const listItem = listItems.find((listItem) => listItem._id === id)
-    if (!listItem) return
-    if (listItem.quantity > 1) {
-      const newList = [...listItems]
-      const indexOfItem = newList.map((x) => x._id).indexOf(id)
-      newList[indexOfItem].quantity = newList[indexOfItem].quantity - 1
-      const listItem = newList[indexOfItem]
-      editListItem(listItem._id, { quantity: listItem.quantity }).then(
-        (res) => {
-          setListItems(newList)
-        }
-      )
-    } else {
-      deleteListItem(id).then(() => {
-        setListItems(listItems.filter((item) => item._id !== id))
-      })
-    }
-  }
-
-  const handleBought = (id: string, value: boolean) => {
-    editListItem(id, { bought: value }).then((res) => {
-      const oldListItem = listItems.find((item) => item._id === id)
-      if (oldListItem) {
-        oldListItem.bought = value
-        setListItems(
-          listItems.map((item) => {
-            if (item._id === id) item.bought = value
-            return item
-          })
-        )
-      }
-    })
-  }
-
   //
   if (!list) return null
 
@@ -189,8 +154,7 @@ const List = () => {
                   key={category}
                   category={category}
                   listItems={listItems}
-                  onBuyListItem={handleBought}
-                  onDeleteListItem={handleDelete}
+                  setListItems={setListItems}
                 />
               )
             })}

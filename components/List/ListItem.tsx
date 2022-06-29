@@ -10,6 +10,7 @@ import classes from './ListItem.module.css'
 import { useVotedIdsSessionStorage } from '../../hooks/useVotedIdsSessionStorage'
 import { useState } from 'react'
 import { editListItem } from '../../gateway/rest/editListItem'
+import { deleteListItem } from '../../gateway/rest/deleteListItem'
 
 export interface IListItem {
   _id: string
@@ -22,8 +23,8 @@ export interface IListItem {
 
 export interface IListItemProps {
   listItem: IListItem
-  onBuy: any
-  onDelete: any
+  listItems: IListItem[]
+  setListItems: any
 }
 
 export interface IBuyableItem {
@@ -34,7 +35,11 @@ export interface IBuyableItem {
   fluid: boolean
 }
 
-const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
+const ListItem: React.FC<IListItemProps> = ({
+  listItem,
+  listItems,
+  setListItems,
+}) => {
   const list = useListContext()
   const votedIds = useVotedIdsSessionStorage(list._id)
   const userHasInitiallyVoted = votedIds.includes(listItem._id)
@@ -59,6 +64,41 @@ const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
     if (!userHasInitiallyVoted && value) return listItem.votes + 1
     if (userHasInitiallyVoted && !value) return listItem.votes - 1
     return listItem.votes
+  }
+
+  const handleBought = (id: string, value: boolean) => {
+    editListItem(id, { bought: value }).then((res) => {
+      const oldListItem = listItems.find((item) => item._id === id)
+      if (oldListItem) {
+        oldListItem.bought = value
+        setListItems(
+          listItems.map((item) => {
+            if (item._id === id) item.bought = value
+            return item
+          })
+        )
+      }
+    })
+  }
+
+  const handleDelete = (id: string) => {
+    const listItem = listItems.find((listItem) => listItem._id === id)
+    if (!listItem) return
+    if (listItem.quantity > 1) {
+      const newList = [...listItems]
+      const indexOfItem = newList.map((x) => x._id).indexOf(id)
+      newList[indexOfItem].quantity = newList[indexOfItem].quantity - 1
+      const listItem = newList[indexOfItem]
+      editListItem(listItem._id, { quantity: listItem.quantity }).then(
+        (res) => {
+          setListItems(newList)
+        }
+      )
+    } else {
+      deleteListItem(id).then(() => {
+        setListItems(listItems.filter((item) => item._id !== id))
+      })
+    }
   }
 
   console.log(listItem)
@@ -89,13 +129,13 @@ const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
       {listItem.tag && <span className={classes.tag}>tag: {listItem.tag}</span>}
       <Button
         className={classes.button}
-        onClick={() => onBuy(listItem._id, !listItem.bought)}
+        onClick={() => handleBought(listItem._id, !listItem.bought)}
         style={{ backgroundColor: listItem.bought ? 'green' : '#D9D9D9' }}
       >
         Bought
       </Button>
       <Button
-        onClick={() => onDelete(listItem._id)}
+        onClick={() => handleDelete(listItem._id)}
         style={{
           backgroundColor: '#F7F7F7',
           color: 'black',
