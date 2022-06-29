@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { IBuyableItem } from "../components/ListItem"
-import { fetchBuyableItems } from "../gateway/rest/fetchBuyableItems"
+import { useEffect, useState } from 'react'
+import { IBuyableItem } from '../components/List/ListItem'
+import { fetchBuyableItems } from '../gateway/rest/fetchBuyableItems'
 
 const useFetchBuyableItems = () => {
   const [buyableItems, setBuyableItems] = useState<IBuyableItem[]>([])
@@ -9,7 +9,6 @@ const useFetchBuyableItems = () => {
       setBuyableItems(res.body)
     })
   }
-
 
   return { fetch, buyableItems }
 }
