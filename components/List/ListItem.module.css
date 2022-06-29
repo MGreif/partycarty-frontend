@@ -41,10 +41,11 @@
 @media (max-width: 880px) {
 	.container {
     width: 100%;
+    padding-right: 0;
   }
 
   .name {
-    min-width: 120px;
+    min-width: 60px;
     flex-grow: 6;
     word-wrap: break-word;
   }

@@ -33,7 +33,7 @@
 @media (max-width: 880px) {
 	.listContainer {
     min-width: 300px;
-    width: 80vw;
+    width: 90vw;
     max-width: 500px;
   }
   .flexcontainer {

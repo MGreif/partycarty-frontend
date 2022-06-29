@@ -21,3 +21,10 @@
   color: white;
   font-weight: bold;
 }
+
+
+@media (max-width: 880px) {
+  .header {
+    height: 30px;
+  }
+}

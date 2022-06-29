@@ -63,7 +63,7 @@ const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
 
   console.log(listItem)
   return (
-    <Group className={classes.container} position="apart" noWrap spacing="xl">
+    <Group className={classes.container} position="apart" noWrap spacing="xs">
       <div className={classes.category}>
         <span>{listItem.buyableItem.category.toString().substring(0, 1)}</span>
       </div>
@@ -99,7 +99,7 @@ const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
         style={{
           backgroundColor: '#F7F7F7',
           color: 'black',
-          padding: '0.2em 0.9em 0.2em 0',
+          padding: '0.2em 0.9em 0.1em 0',
         }}
       >
         X
