@@ -8,7 +8,7 @@ import CreateItemButton from './CreateItemButton'
 import { createBuyableItem } from '../gateway/rest/createBuyableItem'
 import { useDebouncedValue } from '@mantine/hooks'
 import { useFetchBuyableItems } from '../hooks/useFetchBuyableItems'
-import { IList } from './List'
+import { CATEGORIES, IList } from './List'
 import { useListContext } from '../hooks/useListContext'
 import { useMemo } from 'react'
 
@@ -60,7 +60,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
             <div>
               <Text>{name}</Text>
               <Text size="xs" color="dimmed">
-                {_id}
+                {CATEGORIES[category].label}
               </Text>
             </div>
           </Group>

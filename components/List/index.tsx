@@ -120,7 +120,12 @@ const List = () => {
       const oldListItem = listItems.find((item) => item._id === id)
       if (oldListItem) {
         oldListItem.bought = value
-        setListItems([...listItems.filter((x) => x._id !== id), oldListItem])
+        setListItems(
+          listItems.map((item) => {
+            if (item._id === id) item.bought = value
+            return item
+          })
+        )
       }
     })
   }
