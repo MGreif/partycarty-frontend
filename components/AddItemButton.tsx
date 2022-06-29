@@ -8,6 +8,9 @@ import CreateItemButton from './CreateItemButton'
 import { createBuyableItem } from '../gateway/rest/createBuyableItem'
 import { useDebouncedValue } from '@mantine/hooks'
 import { useFetchBuyableItems } from '../hooks/useFetchBuyableItems'
+import { IList } from './List'
+import { useListContext } from '../hooks/useListContext'
+import { useMemo } from 'react'
 
 interface IAddItemButtonProps {
   onAdd: (buyableItem: IBuyableItem) => void
@@ -16,6 +19,8 @@ interface IAddItemButtonProps {
 // Todo POST changes when added
 
 const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
+  const list: IList = useListContext()
+
   const {
     fetch: fetchBuyableItems,
     buyableItems,
@@ -30,6 +35,9 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
 
   useEffect(() => {
     fetchBuyableItems(searchTermDebounce)
+    if (item && item.name !== searchTerm) {
+      setItem(undefined)
+    }
     // eslint-disable-next-line
   }, [searchTerm])
 
@@ -88,6 +96,18 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
     setItem(undefined)
   }
 
+  const autocompleteItems = useMemo(
+    () => [
+      ...buyableItems.map((x: IBuyableItem) => ({
+        ...x,
+        value: x.name,
+        fluid: x.fluid.toString(),
+      })),
+      { value: searchTerm || '', _id: 'add-button' },
+    ],
+    [buyableItems]
+  )
+
   return (
     <div className={classes.container}>
       <CreateItemButton
@@ -100,20 +120,17 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
         className={classes.autocomplete}
         placeholder="Banana, Snickers, Whiskey ...."
         itemComponent={AutoCompleteItem}
-        data={[
-          ...buyableItems.map((x: IBuyableItem) => ({
-            ...x,
-            value: x.name,
-            fluid: x.fluid.toString(),
-          })),
-          { value: searchTerm || '', _id: 'add-button' },
-        ]}
+        data={autocompleteItems}
         onItemSubmit={handleChange}
         onChange={(value: string) => setSearchTerm(value)}
         value={searchTerm}
         defaultValue=""
       />
-      {item && <Button onClick={handleButtonClick}>+</Button>}
+      {item && (
+        <Button className={classes.addButton} onClick={handleButtonClick}>
+          +
+        </Button>
+      )}
     </div>
   )
 }

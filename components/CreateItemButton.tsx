@@ -32,6 +32,8 @@ const CreateItemButton = ({
         validation={(values: any) => {
           const errors: any = {}
           if (!values.name) errors.name = 'Please specify a name'
+          if (values.name && values.name.length <= 3)
+            errors.name = 'Please enter a name longer than 3 characters'
           if (!values.category) errors.category = 'Please specify a category'
           return errors
         }}
