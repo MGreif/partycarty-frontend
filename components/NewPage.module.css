@@ -27,3 +27,17 @@
 .article {
   margin-bottom: 1em;
 }
+
+@media (max-width: 880px) {
+  .container {
+    width: 90vw;
+  }
+
+  .centered {
+    text-align: center;
+  }
+
+  .flexSection {
+    flex-direction: column;
+  }
+}

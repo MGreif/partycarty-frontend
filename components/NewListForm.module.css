@@ -3,3 +3,10 @@
   width: 50%;
   margin: 1em auto;
 }
+
+
+@media (max-width: 880px) {
+  .formContainer {
+    width: 90%;
+  }
+}
