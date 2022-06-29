@@ -8,6 +8,7 @@
 .list {
   display: flex;
   flex-direction: column;
+  margin-top: 2em;
 }
 
 .list > * {
@@ -21,8 +22,5 @@
 @media (max-width: 880px) {
 	.listContainer {
     width: 300px;
-  }
-  .list {
-    margin-top: 2em;
   }
 }

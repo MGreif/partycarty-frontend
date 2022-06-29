@@ -22,7 +22,7 @@
 }
 
 .name {
-    min-width: 150px;
+    min-width: 120px;
     max-width: 300px;
     word-wrap: break-word;
 }
