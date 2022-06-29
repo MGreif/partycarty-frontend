@@ -37,27 +37,27 @@ export interface IBuyableItem {
 const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
   const list = useListContext()
   const votedIds = useVotedIdsSessionStorage(list._id)
-  const userVotedForThisItem = votedIds.includes(listItem._id)
-  console.log('usevoted', userVotedForThisItem)
-  const [isVoted, setIsVoted] = useState<boolean>(userVotedForThisItem)
-  console.log('isvoted', isVoted, userVotedForThisItem)
+  const userHasInitiallyVoted = votedIds.includes(listItem._id)
+  console.log('usevoted', userHasInitiallyVoted)
+  const [isVoted, setIsVoted] = useState<boolean>(userHasInitiallyVoted)
+  console.log('isvoted', isVoted, userHasInitiallyVoted)
 
   useEffect(() => {
-    setIsVoted(userVotedForThisItem)
-  }, [userVotedForThisItem])
+    setIsVoted(userHasInitiallyVoted)
+  }, [userHasInitiallyVoted])
 
   const handleVote = (value: boolean) => {
     toggleVoteInSessionStorage(list._id, listItem._id)
     setIsVoted(value)
 
     editListItem(listItem._id, {
-      votes: value ? listItem.votes + 1 : listItem.votes - 1,
+      votes: calculateVotes(value),
     }).then(console.log)
   }
 
-  const calculateVotes = () => {
-    if (!userVotedForThisItem && isVoted) return listItem.votes + 1
-    if (userVotedForThisItem && !isVoted) return listItem.votes - 1
+  const calculateVotes = (value: boolean) => {
+    if (!userHasInitiallyVoted && value) return listItem.votes + 1
+    if (userHasInitiallyVoted && !value) return listItem.votes - 1
     return listItem.votes
   }
 
@@ -74,7 +74,7 @@ const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
         </Text>
       </div>
       {(listItem.votes || isVoted) && (
-        <div className={classes.votes}>{calculateVotes()}👍</div>
+        <div className={classes.votes}>{calculateVotes(isVoted)}👍</div>
       )}
       <Button
         onClick={() => handleVote(!isVoted)}
