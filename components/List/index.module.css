@@ -19,10 +19,21 @@
   width: 600px;
 }
 
+.flexcontainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 @media (max-width: 880px) {
 	.listContainer {
     min-width: 300px;
     width: 80vw;
     max-width: 500px;
+  }
+  .flexcontainer {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }

@@ -154,14 +154,8 @@ const List = () => {
   return (
     <div className={classes.container}>
       <h1>{list.description}</h1>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          width: '100%',
-        }}
-      >
-        <div style={{ width: '300px' }}>
+      <div className={classes.flexcontainer}>
+        <div style={{ width: '300px' }} className={classes.googleAd}>
           <GoogleAdVertical slotId="5334228675" />
         </div>
         <div className={classes.listContainer}>
@@ -181,7 +175,7 @@ const List = () => {
             })}
           </div>
         </div>
-        <div style={{ width: '300px' }}>
+        <div style={{ width: '300px' }} className={classes.googleAd}>
           <GoogleAdVertical slotId="1838956353" />
         </div>
       </div>
