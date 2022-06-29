@@ -133,26 +133,58 @@ const List = () => {
   //
   if (!list) return null
 
+  const GoogleAdVertical = ({ slotId }: { slotId: string }) => {
+    useEffect(() => {
+      ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
+        {}
+      )
+    }, [])
+    return (
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-2039881454710498"
+        data-ad-slot={slotId}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+    )
+  }
+
   return (
     <div className={classes.container}>
       <h1>{list.description}</h1>
-      <Container className={classes.listContainer} px={0}>
-        <AddItemButton onAdd={addListItem} />
-        <div className={classes.list}>
-          {listItems.length === 0 && <span>No Items</span>}
-          {Object.entries(CATEGORIES).map(([category, value]: [any, any]) => {
-            return (
-              <SubList
-                key={category}
-                category={category}
-                listItems={listItems}
-                onBuyListItem={handleBought}
-                onDeleteListItem={handleDelete}
-              />
-            )
-          })}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '100%',
+        }}
+      >
+        <div style={{ width: '300px' }}>
+          <GoogleAdVertical slotId="5334228675" />
         </div>
-      </Container>
+        <div className={classes.listContainer}>
+          <AddItemButton onAdd={addListItem} />
+          <div className={classes.list}>
+            {listItems.length === 0 && <span>No Items</span>}
+            {Object.entries(CATEGORIES).map(([category, value]: [any, any]) => {
+              return (
+                <SubList
+                  key={category}
+                  category={category}
+                  listItems={listItems}
+                  onBuyListItem={handleBought}
+                  onDeleteListItem={handleDelete}
+                />
+              )
+            })}
+          </div>
+        </div>
+        <div style={{ width: '300px' }}>
+          <GoogleAdVertical slotId="1838956353" />
+        </div>
+      </div>
     </div>
   )
 }
