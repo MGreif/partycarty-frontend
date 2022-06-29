@@ -60,7 +60,6 @@ export const CATEGORIES = {
 
 const List = () => {
   const list: IList = useListContext()
-  console.log('list', list)
 
   const [listItems, setListItems] = useState<IListItem[]>(list?.items || [])
 

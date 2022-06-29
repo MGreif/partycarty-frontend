@@ -4,13 +4,19 @@ import { fetchBuyableItems } from '../gateway/rest/fetchBuyableItems'
 
 const useFetchBuyableItems = () => {
   const [buyableItems, setBuyableItems] = useState<IBuyableItem[]>([])
+  const [addedItems, setAddedItems] = useState<IBuyableItem[]>([])
   const fetch = (searchString: string) => {
     fetchBuyableItems(searchString).then((res: any) => {
       setBuyableItems(res.body)
     })
   }
 
-  return { fetch, buyableItems }
+  const mutateBuyableItems = (item: IBuyableItem) => {
+    setAddedItems([item, ...addedItems])
+    setBuyableItems([item, ...buyableItems])
+  }
+
+  return { fetch, buyableItems, mutateBuyableItems, addedItems }
 }
 
 export { useFetchBuyableItems }

@@ -63,7 +63,6 @@ const CreateItemButton = ({
             <InputWrapper label="category">
               <Select
                 onChange={(e) => {
-                  console.log(e)
                   handleChange({
                     target: {
                       name: 'category',

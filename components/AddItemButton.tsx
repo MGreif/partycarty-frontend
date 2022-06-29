@@ -16,7 +16,12 @@ interface IAddItemButtonProps {
 // Todo POST changes when added
 
 const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
-  const { fetch: fetchBuyableItems, buyableItems }: any = useFetchBuyableItems()
+  const {
+    fetch: fetchBuyableItems,
+    buyableItems,
+    mutateBuyableItems,
+    addedItems,
+  }: any = useFetchBuyableItems()
 
   const [searchTerm, setSearchTerm] = useState<string | undefined>()
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -63,8 +68,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
   const handleModalSubmit = (values: IBuyableItem) => {
     createBuyableItem(values)
       .then(({ body }: { body: IBuyableItem }) => {
-        buyableItems.unshift(body)
-        console.log(body, buyableItems)
+        mutateBuyableItems(body)
       })
       .catch((err) => {
         console.error(err)
@@ -75,7 +79,9 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
   }
 
   const handleButtonClick = () => {
-    const item = buyableItems.find((i: IBuyableItem) => i.name === searchTerm)
+    const item = [...addedItems, ...buyableItems].find(
+      (i: IBuyableItem) => i.name === searchTerm
+    )
     if (!item) return
     onAdd(item)
     setSearchTerm('')

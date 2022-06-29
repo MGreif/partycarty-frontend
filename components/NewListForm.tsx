@@ -7,27 +7,29 @@ import { buildApiLink, buildLink } from '../libs/linkBuilder'
 import { useRouter } from 'next/router'
 
 type TNewListForm = {
-    description: string
-    editable: boolean,
+  description: string
+  editable: boolean
 }
 
 const NewListForm = () => {
   const router = useRouter()
 
-    return <div className={classes.container}>
+  return (
+    <div className={classes.container}>
       <GenericForm
         initialValues={{ description: '', editable: true }}
         onSubmit={(values, { setSubmitting }) => {
           superagent
-            .post(buildApiLink("/shopping-list"))
+            .post(buildApiLink('/shopping-list'))
             .send(values)
-            .then(res => {
+            .then((res) => {
               if (res.statusCode === 200) {
-                router.push(buildLink("/shared/"+ res.body._id))
+                router.push(buildLink('/shared/' + res.body._id))
               }
             })
-        }}>
-          {({
+        }}
+      >
+        {({
           values,
           errors,
           touched,
@@ -36,8 +38,7 @@ const NewListForm = () => {
           isSubmitting,
         }: any) => (
           <>
-          <InputWrapper label="Description" >
-            {console.log("description")}
+            <InputWrapper label="Description">
               <Input
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -46,22 +47,28 @@ const NewListForm = () => {
                 name="description"
               />
               {errors.description && touched.description && errors.description}
-          </InputWrapper>
-          <InputWrapper label="Editable">
-              <Checkbox 
+            </InputWrapper>
+            <InputWrapper label="Editable">
+              <Checkbox
                 onChange={handleChange}
                 onBlur={handleBlur}
                 checked={values.editable}
                 name="editable"
               />
               {errors.editable && touched.editable && errors.editable}
-          </InputWrapper>
-          <Button type="submit" disabled={isSubmitting} style={{margin: "1em 0"}}>Create</Button>
+            </InputWrapper>
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              style={{ margin: '1em 0' }}
+            >
+              Create
+            </Button>
           </>
-        )
-        }
+        )}
       </GenericForm>
     </div>
+  )
 }
 
 export default NewListForm
