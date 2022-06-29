@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { IList } from "../components/List"
-import { fetchShoppingList } from "../gateway/rest/fetchShoppingList"
+import { useEffect, useState } from 'react'
+import { IList } from '../components/List'
+import { fetchShoppingList } from '../gateway/rest/fetchShoppingList'
 
 const useFetchShoppingList = (id: string) => {
   const [data, setData] = useState<IList>()
@@ -9,7 +9,6 @@ const useFetchShoppingList = (id: string) => {
       setData(res.body)
     })
   }
-
 
   return { fetch, data }
 }

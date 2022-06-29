@@ -1,9 +1,6 @@
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import { useParams } from 'react-router'
 import List from '../../components/List'
 import { fetchShoppingList } from '../../gateway/rest/fetchShoppingList'
-import { useFetchShoppingList } from '../../hooks/useFetchShoppingList'
 import { ListContext } from '../../hooks/useListContext'
 
 const Detail = ({ data }: any) => {
