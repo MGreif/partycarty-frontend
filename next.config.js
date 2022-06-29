@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
   font-src 'self';  
   frame-src *.googlesyndication.com *.google.com  https://googleads.g.doubleclick.net;
   connect-src 'self' *.googlesyndication.com *.google-analytics.com;
-  img-src *.googlesyndication.com;
+  img-src 'self' *.googlesyndication.com;
 `
 
 const securityHeaders = [
