@@ -1,5 +1,5 @@
 import { Button, Checkbox, Group, Text } from '@mantine/core'
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { useListContext } from '../../hooks/useListContext'
 import {
   checkIfVotedFor,
@@ -7,6 +7,9 @@ import {
 } from '../../libs/sessionStorage'
 import { CATEGORIES } from '.'
 import classes from './ListItem.module.css'
+import { useVotedIdsSessionStorage } from '../../hooks/useVotedIdsSessionStorage'
+import { useState } from 'react'
+import { editListItem } from '../../gateway/rest/editListItem'
 
 export interface IListItem {
   _id: string
@@ -33,11 +36,32 @@ export interface IBuyableItem {
 
 const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
   const list = useListContext()
-  const userVotedForThisItem = checkIfVotedFor(list._id, listItem._id)
+  const votedIds = useVotedIdsSessionStorage(list._id)
+  const userVotedForThisItem = votedIds.includes(listItem._id)
+  console.log('usevoted', userVotedForThisItem)
+  const [isVoted, setIsVoted] = useState<boolean>(userVotedForThisItem)
+  console.log('isvoted', isVoted, userVotedForThisItem)
 
-  const handleVote = () => {
+  useEffect(() => {
+    setIsVoted(userVotedForThisItem)
+  }, [userVotedForThisItem])
+
+  const handleVote = (value: boolean) => {
     toggleVoteInSessionStorage(list._id, listItem._id)
+    setIsVoted(value)
+
+    editListItem(listItem._id, {
+      votes: value ? listItem.votes + 1 : listItem.votes - 1,
+    }).then(console.log)
   }
+
+  const calculateVotes = () => {
+    if (!userVotedForThisItem && isVoted) return listItem.votes + 1
+    if (userVotedForThisItem && !isVoted) return listItem.votes - 1
+    return listItem.votes
+  }
+
+  console.log(listItem)
   return (
     <Group className={classes.container} position="apart" noWrap spacing="xl">
       <div className={classes.category}>
@@ -49,13 +73,15 @@ const ListItem: React.FC<IListItemProps> = ({ listItem, onBuy, onDelete }) => {
           Qty: {listItem.quantity}
         </Text>
       </div>
-      {listItem.votes && <div className={classes.votes}>{listItem.votes}</div>}
+      {(listItem.votes || isVoted) && (
+        <div className={classes.votes}>{calculateVotes()}👍</div>
+      )}
       <Button
-        onClick={handleVote}
+        onClick={() => handleVote(!isVoted)}
         className={classes.button}
         style={{
           marginLeft: listItem.votes ? 0 : 'auto',
-          backgroundColor: userVotedForThisItem ? 'green' : '#D9D9D9',
+          backgroundColor: isVoted ? 'green' : '#D9D9D9',
         }}
       >
         Vote

@@ -81,11 +81,16 @@ const List = () => {
           .includes(buyableItem.name)
       ) {
         const indexOfItem = listItems
-          .map((listItem) => listItem.buyableItem.name)
+          .map((listItem: IListItem) => listItem.buyableItem.name)
           .indexOf(buyableItem.name)
         const newList = [...listItems]
         newList[indexOfItem].quantity = newList[indexOfItem].quantity + 1
-        setListItems(newList)
+        const listItem = newList[indexOfItem]
+        editListItem(listItem._id, { quantity: listItem.quantity }).then(
+          (res) => {
+            setListItems(newList)
+          }
+        )
       } else {
         const newListItem = {
           bought: false,
@@ -110,9 +115,23 @@ const List = () => {
   )
 
   const handleDelete = (id: string) => {
-    deleteListItem(id).then(() => {
-      setListItems(listItems.filter((item) => item._id !== id))
-    })
+    const listItem = listItems.find((listItem) => listItem._id === id)
+    if (!listItem) return
+    if (listItem.quantity > 1) {
+      const newList = [...listItems]
+      const indexOfItem = newList.map((x) => x._id).indexOf(id)
+      newList[indexOfItem].quantity = newList[indexOfItem].quantity - 1
+      const listItem = newList[indexOfItem]
+      editListItem(listItem._id, { quantity: listItem.quantity }).then(
+        (res) => {
+          setListItems(newList)
+        }
+      )
+    } else {
+      deleteListItem(id).then(() => {
+        setListItems(listItems.filter((item) => item._id !== id))
+      })
+    }
   }
 
   const handleBought = (id: string, value: boolean) => {

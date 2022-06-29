@@ -7,6 +7,7 @@ function Layout({ children }: any) {
     <AppShell
       padding={0}
       //navbar={<Navigation />}
+      footer={<Footer />}
       header={<Header />}
       styles={(theme) => ({
         main: {
@@ -18,7 +19,6 @@ function Layout({ children }: any) {
       })}
     >
       {children}
-      <Footer />
     </AppShell>
   )
 }

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className={classes.container}>
+    <footer className={classes.container}>
       <span>
         <Link href="https://de.linkedin.com/in/mika-greif">Mika Greif</Link>
       </span>
@@ -11,7 +11,7 @@ const Footer = () => {
       <span>
         <Link href="/imprint">Imprint</Link>
       </span>
-    </div>
+    </footer>
   )
 }
 
