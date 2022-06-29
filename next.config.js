@@ -9,7 +9,7 @@ const ContentSecurityPolicy = `
   script-src 'self' *.googletagmanager.com *.googlesyndication.com 'nonce-script-ga' 'nonce-script-ga2'; script-src-elem 'self' *.googlesyndication.com *.googleadservices.com *.google.de *.google.com https://pagead2.googlesyndication.com https://www.googletagmanager.com 'nonce-script-ga' 'nonce-script-ga3';
   style-src 'self' 'unsafe-inline';
   font-src 'self';  
-  frame-src https://googleads.g.doubleclick.net;
+  frame-src *.googlesyndication.com *.google.com  https://googleads.g.doubleclick.net;
   connect-src 'self' *.googlesyndication.com *.google-analytics.com;
 `
 
