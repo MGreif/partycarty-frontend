@@ -15,7 +15,7 @@ const NewListForm = () => {
   const router = useRouter()
 
   return (
-    <div className={classes.container}>
+    <div className={classes.formContainer}>
       <GenericForm
         initialValues={{ description: '', editable: true }}
         onSubmit={(values, { setSubmitting }) => {
