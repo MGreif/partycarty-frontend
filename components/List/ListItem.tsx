@@ -121,7 +121,7 @@ const ListItem: React.FC<IListItemProps> = ({
       {listItem.tag && <span className={classes.tag}>tag: {listItem.tag}</span>}
       <Button
         className={classes.button}
-        onClick={() => handleBought(listItem._id, !listItem.bought)}
+        onClick={() => handleBought(listItem._id, !isBought)}
         style={{
           backgroundColor: isBought ? 'green' : '#D9D9D9',
         }}
