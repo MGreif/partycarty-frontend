@@ -43,6 +43,7 @@ const ListItem: React.FC<IListItemProps> = ({
   const list = useListContext()
   const votedIds = useVotedIdsSessionStorage(list._id)
   const userHasInitiallyVoted = votedIds.includes(listItem._id)
+  const [isBought, setIsBought] = useState<boolean>(listItem.bought)
   console.log('usevoted', userHasInitiallyVoted)
   const [isVoted, setIsVoted] = useState<boolean>(userHasInitiallyVoted)
   console.log('isvoted', isVoted, userHasInitiallyVoted)
@@ -68,16 +69,7 @@ const ListItem: React.FC<IListItemProps> = ({
 
   const handleBought = (id: string, value: boolean) => {
     editListItem(id, { bought: value }).then((res) => {
-      const oldListItem = listItems.find((item) => item._id === id)
-      if (oldListItem) {
-        oldListItem.bought = value
-        setListItems(
-          listItems.map((item) => {
-            if (item._id === id) item.bought = value
-            return item
-          })
-        )
-      }
+      setIsBought(value)
     })
   }
 
@@ -130,7 +122,9 @@ const ListItem: React.FC<IListItemProps> = ({
       <Button
         className={classes.button}
         onClick={() => handleBought(listItem._id, !listItem.bought)}
-        style={{ backgroundColor: listItem.bought ? 'green' : '#D9D9D9' }}
+        style={{
+          backgroundColor: listItem.bought || isBought ? 'green' : '#D9D9D9',
+        }}
       >
         Bought
       </Button>
