@@ -34,7 +34,7 @@ export default class _Document extends Document {
             crossOrigin="anonymous"
           ></script>
         </Head>
-        <body>
+        <body style={{ backgroundColor: '#E3E3E3' }}>
           <Main />
           <NextScript />
         </body>
