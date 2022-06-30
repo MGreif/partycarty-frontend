@@ -5,11 +5,6 @@ import { fetchShoppingList } from '../../gateway/rest/fetchShoppingList'
 import { ListContext } from '../../hooks/useListContext'
 
 const Detail = ({ data }: any) => {
-  const router = useRouter()
-  const { id }: any = router.query
-
-  if (!id) return null
-
   return (
     <div
       style={{ minHeight: 'calc(100vh - 60px)', backgroundColor: '#E3E3E3' }}

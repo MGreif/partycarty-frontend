@@ -30,6 +30,12 @@
   margin: 0 auto;
 }
 
+.header {
+  overflow-wrap: break-word;
+  max-width: 50vw;
+  text-align: center;
+}
+
 @media (max-width: 880px) {
 	.listContainer {
     min-width: 300px;
@@ -40,5 +46,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+  .header {
+    max-width: 80vw;
   }
 }

@@ -9,31 +9,7 @@ export default class _Document extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <script
-            async
-            nonce="script-ga2"
-            src="https://www.googletagmanager.com/gtag/js?id=G-6GXGD6L270"
-          ></script>
-          <script
-            nonce="script-ga"
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-6GXGD6L270');
-          `,
-            }}
-          />
-          <script
-            async
-            nonce="script-ga3"
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2039881454710498"
-            crossOrigin="anonymous"
-          ></script>
-        </Head>
+        <Head></Head>
         <body style={{ backgroundColor: '#E3E3E3' }}>
           <Main />
           <NextScript />

@@ -1,10 +1,12 @@
 import { Container } from '@mantine/core'
+import Head from 'next/head'
 import { useEffect } from 'react'
 import { useCallback, useState } from 'react'
 import { createListItem } from '../../gateway/rest/createListItem'
 import { deleteListItem } from '../../gateway/rest/deleteListItem'
 import { editListItem } from '../../gateway/rest/editListItem'
 import { useListContext } from '../../hooks/useListContext'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { randomString } from '../../libs/mockGenerator'
 import AddItemButton from '../AddItemButton'
 import classes from './index.module.css'
@@ -64,6 +66,7 @@ const List = () => {
   const list: IList = useListContext()
 
   const [listItems, setListItems] = useState<IListItem[]>(list?.items || [])
+  const isBreakpoint = useMediaQuery(880)
 
   useEffect(() => {
     if (list) {
@@ -123,25 +126,55 @@ const List = () => {
         {}
       )
     }, [])
+
     return (
-      <ins
-        className="adsbygoogle ad"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-2039881454710498"
-        data-ad-slot={slotId}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
+      <>
+        <Head>
+          <script
+            async
+            nonce="script-ga2"
+            src="https://www.googletagmanager.com/gtag/js?id=G-6GXGD6L270"
+          ></script>
+          <script
+            nonce="script-ga"
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-6GXGD6L270');
+          `,
+            }}
+          />
+          <script
+            async
+            nonce="script-ga3"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2039881454710498"
+            crossOrigin="anonymous"
+          ></script>
+        </Head>
+        <ins
+          className="adsbygoogle ad"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-2039881454710498"
+          data-ad-slot={slotId}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+      </>
     )
   }
 
   return (
     <div className={classes.container}>
-      <h1>{list.description}</h1>
+      <h1 className={classes.header}>{list.description}</h1>
       <div className={classes.flexcontainer}>
-        <div style={{ width: '300px' }} className={classes.googleAd}>
-          <GoogleAdVertical slotId="5334228675" />
-        </div>
+        {isBreakpoint || (
+          <div style={{ width: '300px' }} className={classes.googleAd}>
+            <GoogleAdVertical slotId="5334228675" />
+          </div>
+        )}
         <div className={classes.listContainer}>
           <AddItemButton onAdd={addListItem} />
           <div className={classes.list}>
@@ -160,9 +193,11 @@ const List = () => {
             })}
           </div>
         </div>
-        <div style={{ width: '300px' }} className={classes.googleAd}>
-          <GoogleAdVertical slotId="1838956353" />
-        </div>
+        {isBreakpoint || (
+          <div style={{ width: '300px' }} className={classes.googleAd}>
+            <GoogleAdVertical slotId="1838956353" />
+          </div>
+        )}
       </div>
     </div>
   )

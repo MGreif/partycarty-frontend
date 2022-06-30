@@ -28,6 +28,12 @@ const NewListForm = () => {
               }
             })
         }}
+        validation={(values) => {
+          let errors: any = {}
+          if (values.description.length > 100)
+            errors.description = 'Please use less than 100 characters'
+          return errors
+        }}
       >
         {({
           values,
@@ -45,6 +51,7 @@ const NewListForm = () => {
                 value={values.description}
                 placeholder="Shopping cart for sophis birthday"
                 name="description"
+                maxLength={100}
               />
               {errors.description && touched.description && errors.description}
             </InputWrapper>
