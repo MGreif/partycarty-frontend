@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import List from '../../components/List'
 import { fetchShoppingList } from '../../gateway/rest/fetchShoppingList'
@@ -13,6 +14,9 @@ const Detail = ({ data }: any) => {
     <div
       style={{ minHeight: 'calc(100vh - 60px)', backgroundColor: '#E3E3E3' }}
     >
+      <Head>
+        <title>PartyCarty | {JSON.parse(data).description}</title>
+      </Head>
       <ListContext.Provider value={JSON.parse(data)}>
         <List />
       </ListContext.Provider>

@@ -18,18 +18,21 @@ function App(props: AppProps) {
         <meta httpEquiv="content-Language" content="en" />
         <meta
           name="description"
-          content="Free clever shopping lists for social events (parties, conventions, etc..)"
+          content="Create and share your shoppinglists among friends, family and groups for free! PartyCarty provides clever autofill and categorizes the items for the best experience!"
         />
         <meta
           name="keywords"
-          content="Free no-signup Shopping lists clever autofill social events online on the fly shopping list share"
+          content="Free no-signup Shopping lists clever autofill social events online on the fly shopping list share parties party"
         />
         <meta name="author" content="Mika Greif" />
         <meta name="publisher" content="Mika Greif" />
         <meta name="copyright" content="Mika Greif" />
         <meta name="audience" content="Alle" />
         <meta name="page-type" content="List, Persistant, Teilbar, Shareable" />
-        <meta name="page-topic" content="Shopping, Online, Lists" />
+        <meta
+          name="page-topic"
+          content="Shopping, Online, Lists, Party, Shoppingliste, Shoppingslist, Einkaufsliste"
+        />
         <meta httpEquiv="Reply-to" content="Mika@greif.me" />
         <meta name="expires" content="" />
         <meta name="revisit-after" content="15 days" />

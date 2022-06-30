@@ -125,7 +125,7 @@ const List = () => {
     }, [])
     return (
       <ins
-        className="adsbygoogle"
+        className="adsbygoogle ad"
         style={{ display: 'block' }}
         data-ad-client="ca-pub-2039881454710498"
         data-ad-slot={slotId}
