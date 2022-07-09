@@ -15,7 +15,7 @@ const LastVisitedLists = () => {
       <div className={classes.container}>
         <h2>Last visited lists</h2>
         {Object.entries(lists).map(([id, description]) => (
-          <LastList id={id} description={description} />
+          <LastList key={id} id={id} description={description} />
         ))}
       </div>
     </>
