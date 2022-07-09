@@ -6,7 +6,7 @@ import { ListContext } from '../../hooks/useListContext'
 import { MissingList } from '../../components/MissingList'
 
 const Detail = ({ data }: any) => {
-  if (!data) {
+  if (!data || !JSON.parse(data)) {
     return (
       <div style={{ minHeight: 'calc(100vh - 60px)' }}>
         <Head>
