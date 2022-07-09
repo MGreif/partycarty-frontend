@@ -17,10 +17,13 @@ const Detail = ({ data }: any) => {
     )
   }
 
+  console.log(data, JSON.parse(data))
+  const title = JSON.parse(data).description
+
   return (
     <div style={{ minHeight: 'calc(100vh - 60px)' }}>
       <Head>
-        <title>PartyCarty | {JSON.parse(data).description}</title>
+        <title>PartyCarty | {title || 'Clever Shopping List'}</title>
       </Head>
       <ListContext.Provider value={JSON.parse(data)}>
         <List />
