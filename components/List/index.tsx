@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react'
 import { createListItem } from '../../gateway/rest/createListItem'
 import { deleteListItem } from '../../gateway/rest/deleteListItem'
 import { editListItem } from '../../gateway/rest/editListItem'
+import { useLastVisitedListsLocalStorage } from '../../hooks/useLastVisitedListsLocalStorage'
 import { useListContext } from '../../hooks/useListContext'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { randomString } from '../../libs/mockGenerator'
@@ -68,8 +69,14 @@ const List = () => {
   const [listItems, setListItems] = useState<IListItem[]>(list?.items || [])
   const isBreakpoint = useMediaQuery(880)
 
+  const { addList } = useLastVisitedListsLocalStorage()
+
+  useEffect(() => {}, [])
+
   useEffect(() => {
     if (list) {
+      addList(list)
+
       setListItems(list.items)
     }
   }, [list])

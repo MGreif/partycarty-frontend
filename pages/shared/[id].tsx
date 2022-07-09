@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import List from '../../components/List'
+import List, { IList } from '../../components/List'
 import { fetchShoppingList } from '../../gateway/rest/fetchShoppingList'
 import { ListContext } from '../../hooks/useListContext'
 import { MissingList } from '../../components/MissingList'

@@ -55,15 +55,17 @@ const NewListForm = () => {
               />
               {errors.description && touched.description && errors.description}
             </InputWrapper>
-            <InputWrapper label="Editable">
+            {/*
+              <InputWrapper label="Editable">
               <Checkbox
                 onChange={handleChange}
                 onBlur={handleBlur}
                 checked={values.editable}
                 name="editable"
-              />
-              {errors.editable && touched.editable && errors.editable}
+                />
+                {errors.editable && touched.editable && errors.editable}
             </InputWrapper>
+              */}
             <Button
               type="submit"
               disabled={isSubmitting}

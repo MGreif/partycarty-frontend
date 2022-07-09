@@ -1,11 +1,9 @@
 import classes from './NewPage.module.css'
-import { useRouter } from 'next/router'
 import NewListForm from './NewListForm'
 import { Divider } from '@mantine/core'
+import { LastVisitedLists } from './LastVisitedLists'
 
 const NewPage = () => {
-  const router = useRouter()
-
   return (
     <div className={classes.container}>
       <h1 className={classes.centered}>👉 Create your own List for free! 👈</h1>
@@ -25,6 +23,7 @@ const NewPage = () => {
           multiple pieces so other guests wont steal your golden piece!
         </p>
       </article>
+      <LastVisitedLists />
       <Divider />
       <NewListForm />
       <Divider />
@@ -33,18 +32,19 @@ const NewPage = () => {
           <div>
             <h2>Instructions</h2>
             <ol>
+              <li>Pick a fitting description/name of the event</li>
+              <li>Share the link with your friends</li>
               <li>
-                Fill the given form with the description/name of the event
-              </li>
-              <li>
-                Select if other users should be able to <br />{' '}
-                <ul>
-                  <li>Add items</li>
-                  <li>Delete items</li>
-                  <li>Set items as bought</li>
+                All of your friends can
+                <ul style={{ listStyle: 'none', paddingLeft: '1em' }}>
+                  <li>➕ Add new Items</li>
+                  <li>✔️ Set items as bought</li>
+                  <li>🗳️ Vote for items</li>
                 </ul>
               </li>
-              <li>Share the link with your friends 🥳🥳</li>
+              <li>
+                <b>Successfully and easily buy all desired items 🥳</b>
+              </li>
             </ol>
           </div>
           <div>
