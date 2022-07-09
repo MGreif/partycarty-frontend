@@ -34,12 +34,15 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
   const [searchTermDebounce] = useDebouncedValue(searchTerm, 500)
 
   useEffect(() => {
-    fetchBuyableItems(searchTermDebounce)
     if (item && item.name !== searchTerm) {
       setItem(undefined)
     }
     // eslint-disable-next-line
   }, [searchTerm])
+
+  useEffect(() => {
+    fetchBuyableItems(searchTermDebounce)
+  }, [searchTermDebounce])
 
   const handleChange = (item: IBuyableItem & { value: string }) => {
     if (item?._id === 'add-button') {
