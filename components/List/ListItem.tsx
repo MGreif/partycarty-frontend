@@ -97,7 +97,12 @@ const ListItem: React.FC<IListItemProps> = ({
   return (
     <Group className={classes.container} position="apart" noWrap spacing="xs">
       <div className={classes.category}>
-        <span>{listItem.buyableItem.category.toString().substring(0, 1)}</span>
+        <span>
+          {listItem.buyableItem.name
+            .toLocaleUpperCase()
+            .toString()
+            .substring(0, 1)}
+        </span>
       </div>
       <div className={classes.name}>
         <Text>{listItem.buyableItem.name}</Text>

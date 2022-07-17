@@ -28,39 +28,62 @@ export type TCategory = {
 }
 
 export const CATEGORIES = {
-  BABY: { value: 'BABY', label: 'Babies' },
-  BAKERY: { value: 'BAKERY', label: 'Bakery' },
+  BABY: { value: 'BABY', label: 'Babies', icon: '👶' },
+  BAKERY: { value: 'BAKERY', label: 'Bakery', icon: '🍰' },
   BEAUTY_PERSONAL_HYGIENE: {
     value: 'BEAUTY_PERSONAL_HYGIENE',
     label: 'Beauty and personal hygiene',
+    icon: '💄',
   },
   BEER_WINE_SPIRITS: {
     value: 'BEER_WINE_SPIRITS',
     label: 'Alcohol, wine and beer',
+    icon: '🍷',
   },
-  CANS_JARS: { value: 'CANS_JARS', label: 'Cans and jars' },
-  CEREAL_MUESLI: { value: 'CEREAL_MUESLI', label: 'Cereal' },
-  CLOTHING: { value: 'CLOTHING', label: 'Clothing' },
-  COFFEE_TEA: { value: 'COFFEE_TEA', label: 'Coffee and tea' },
-  DAIRY_EGGS: { value: 'DAIRY_EGGS', label: 'Dairy and eggs' },
+  CANS_JARS: { value: 'CANS_JARS', label: 'Cans and jars', icon: '🥫' },
+  CEREAL_MUESLI: { value: 'CEREAL_MUESLI', label: 'Cereal', icon: '🥣' },
+  CLOTHING: { value: 'CLOTHING', label: 'Clothing', icon: '👚' },
+  COFFEE_TEA: { value: 'COFFEE_TEA', label: 'Coffee and tea', icon: '☕' },
+  DAIRY_EGGS: { value: 'DAIRY_EGGS', label: 'Dairy and eggs', icon: '🥛' },
+  DRINKS: { value: 'DRINKS', label: 'Drinks', icon: '🥤' },
   ELECTRONICS_OFFICE: {
     value: 'ELECTRONICS_OFFICE',
     label: 'Electronics and office',
+    icon: '💾',
   },
-  FISH_SEAFOOD: { value: 'FISH_SEAFOOD', label: 'Fish and seafood' },
-  FROZEN: { value: 'FROZEN', label: 'Frozen Food' },
+  FISH_SEAFOOD: {
+    value: 'FISH_SEAFOOD',
+    label: 'Fish and seafood',
+    icon: '🦞',
+  },
+  FROZEN: { value: 'FROZEN', label: 'Frozen Food', icon: '🍦' },
   FRUITS_VEGETABLES: {
     value: 'FRUITS_VEGETABLES',
     label: 'Fruits and vegetables',
+    icon: '🥕',
   },
   'HOUSE-CLEANING_PRODUCTS': {
     value: 'HOUSE-CLEANING_PRODUCTS',
     label: 'Cleaning',
+    icon: '🧽',
   },
-  MEAT_POULTRY: { value: 'MEAT_POULTRY', label: 'Meat and poultry' },
-  OTHER: { value: 'OTHER', label: 'Other' },
-  READY_MEALS: { value: 'READY_MEALS', label: 'Instant meals' },
-  SNACKS_SWEETS: { value: 'SNACKS_SWEETS', label: 'Snacks' },
+  KITCHEN_UTENSILS: {
+    value: 'KITCHEN_UTENSILS',
+    label: 'Kitchen utensils',
+    icon: '🍽️',
+  },
+  MEAT_POULTRY: {
+    value: 'MEAT_POULTRY',
+    label: 'Meat and poultry',
+    icon: '🥩',
+  },
+  OTHER: { value: 'OTHER', label: 'Other', icon: '🤷' },
+  PASTRY: { value: 'PASTRY', label: 'Pastry', icon: '🍰' },
+  READY_MEALS: { value: 'READY_MEALS', label: 'Instant meals', icon: '🍜' },
+  SNACKS_SWEETS: { value: 'SNACKS_SWEETS', label: 'Snacks', icon: '🍿' },
+  SAUCES: { value: 'SAUCES', label: 'Sauces', icon: '🍝' },
+  SPICES: { value: 'SPICES', label: 'Spices', icon: '🍃' },
+  STATIONARY: { value: 'STATIONARY', label: 'Stationary', icon: '🖋️' },
 }
 
 const List = () => {

@@ -1,6 +1,5 @@
 import { Autocomplete, Button, InputWrapper, Text } from '@mantine/core'
 import { createRef, forwardRef, useEffect, useRef, useState } from 'react'
-import { mockBuyableItem } from '../libs/mockGenerator'
 import { IBuyableItem } from './List/ListItem'
 import classes from './AddItemButton.module.css'
 import { Group } from '@mantine/core'
@@ -41,7 +40,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
   }, [searchTerm])
 
   useEffect(() => {
-    fetchBuyableItems(searchTermDebounce)
+    if (searchTermDebounce) fetchBuyableItems(searchTermDebounce)
   }, [searchTermDebounce])
 
   const handleChange = (item: IBuyableItem & { value: string }) => {
@@ -58,13 +57,13 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
       <div ref={ref} {...others} key={_id}>
         {_id !== 'add-button' ? (
           <Group noWrap>
-            <span>I</span>
+            <span>{CATEGORIES[category].icon}</span>
 
             <div>
               <Text>{name}</Text>
-              <Text size="xs" color="dimmed">
+              {/*<Text size="xs" color="dimmed">
                 {CATEGORIES[category].label}
-              </Text>
+        </Text>*/}
             </div>
           </Group>
         ) : (

@@ -17,7 +17,6 @@ const Detail = ({ data }: any) => {
     )
   }
 
-  console.log(data, JSON.parse(data))
   const title = JSON.parse(data).description
 
   return (
