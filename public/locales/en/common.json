@@ -4,6 +4,7 @@
   "imprint": "imprint",
   "validation": {
     "less-characters": "Please insert less than {{amount}} characters.",
-    "is-required": "This field is required."
+    "is-required": "This field is required.",
+    "more-characters": "Please enter more than {{amount}} characters"
   }
 }

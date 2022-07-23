@@ -1,6 +1,7 @@
 import { Checkbox } from '@mantine/core'
 import { Button, Group, Input, InputWrapper, Modal } from '@mantine/core'
 import { Select } from '@mantine/core'
+import { useTranslation } from 'next-i18next'
 import { randomString } from '../libs/mockGenerator'
 import { GenericForm } from './GenericForm'
 import { CATEGORIES } from './List'
@@ -20,6 +21,7 @@ const CreateItemButton = ({
   onSubmit,
   defaultValues,
 }: TCreateItemModalProps) => {
+  const { t } = useTranslation()
   return (
     <Modal opened={open} onClose={() => close()} title="Create a new Item!">
       <GenericForm
@@ -31,10 +33,10 @@ const CreateItemButton = ({
         }}
         validation={(values: any) => {
           const errors: any = {}
-          if (!values.name) errors.name = 'Please specify a name'
+          if (!values.name) errors.name = t('validation.is-required')
           if (values.name && values.name.length <= 3)
-            errors.name = 'Please enter a name longer than 3 characters'
-          if (!values.category) errors.category = 'Please specify a category'
+            errors.name = t('validation.more-characters', { amount: '3' })
+          if (!values.category) errors.category = t('validation.is-required')
           return errors
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
