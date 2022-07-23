@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 
 const Header = () => {
-  const { i18n, t } = useTranslation('newPage')
+  const { i18n, t } = useTranslation('common')
   const router = useRouter()
   const currentURI = router.asPath
   return (

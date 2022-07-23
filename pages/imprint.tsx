@@ -1,3 +1,5 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
 const Imprint = () => {
   return (
     <div style={{ padding: '2em' }}>
@@ -63,3 +65,11 @@ const Imprint = () => {
 }
 
 export default Imprint
+
+export async function getServerSideProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'newPage'])),
+    },
+  }
+}

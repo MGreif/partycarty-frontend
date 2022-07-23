@@ -6,5 +6,6 @@
     "less-characters": "Please insert less than {{amount}} characters.",
     "is-required": "This field is required.",
     "more-characters": "Please enter more than {{amount}} characters"
-  }
+  },
+  "slogan": "Clever Shopping Lists"
 }

@@ -6,5 +6,6 @@
     "less-characters": "Bitte geben sie maximal {{amount}} Zeichen ein.",
     "is-required": "Dieses Feld ist benötigt.",
     "more-characters": "Bitte geben sie mindestens {{amount}} Zeichen ein."
-  }
+  },
+  "slogan": "Schlaue Einkaufslisten"
 }
