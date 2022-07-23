@@ -31,7 +31,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
   const [searchTerm, setSearchTerm] = useState<string | undefined>()
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const [item, setItem] = useState<IBuyableItem & { value: string }>()
-  const [searchTermDebounce] = useDebouncedValue(searchTerm, 500)
+  const [searchTermDebounce] = useDebouncedValue(searchTerm, 150)
 
   const { t } = useTranslation('list')
 
