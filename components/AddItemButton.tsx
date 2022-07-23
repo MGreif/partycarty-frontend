@@ -117,7 +117,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
           ...x,
           value: x.name,
           fluid: x.fluid.toString(),
-          group: t('categories.' + CATEGORIES[x.category].value),
+          //         group: t('categories.' + CATEGORIES[x.category].value),
         })),
       { value: searchTerm || '', _id: 'add-button' },
     ],
