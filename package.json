@@ -1,6 +1,6 @@
 {
   "name": "carty-frontend",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,9 +16,6 @@
     "@mantine/next": "^4.2.11",
     "dotenv": "^16.0.1",
     "formik": "^2.2.9",
-    "i18next": "^21.8.14",
-    "i18next-browser-languagedetector": "^6.1.4",
-    "i18next-http-backend": "^1.4.1",
     "next": "12.1.6",
     "next-i18next": "^11.3.0",
     "react": "18.2.0",
