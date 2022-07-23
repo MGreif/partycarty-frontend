@@ -1,5 +1,9 @@
 {
   "create": "Create",
   "description": "Description",
-  "imprint": "imprint"
+  "imprint": "imprint",
+  "validation": {
+    "less-characters": "Please insert less than {{amount}} characters.",
+    "is-required": "This field is required."
+  }
 }

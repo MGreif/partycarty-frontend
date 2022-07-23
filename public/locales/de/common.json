@@ -1,5 +1,9 @@
 {
   "create": "Erstellen",
   "description": "Titel",
-  "imprint": "Impressum"
+  "imprint": "Impressum",
+  "validation": {
+    "less-characters": "Bitte geben sie maximal {{amount}} Zeichen ein.",
+    "is-required": "Dieses Feld ist benötigt."
+  }
 }

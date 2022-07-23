@@ -31,5 +31,6 @@
   },
   "quantity": "Qty:",
   "bought": "Bought",
-  "no-items": "No items ..."
+  "no-items": "No items ...",
+  "add-placeholder": "Bananas, Bread, Milk ..."
 }

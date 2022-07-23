@@ -31,5 +31,6 @@
   },
   "quantity": "Stk:",
   "bought": "Gekauft",
-  "no-items": "Keine Gegenstände ..."
+  "no-items": "Keine Einträge ...",
+  "add-placeholder": "Bananen, Brot, Milch ..."
 }

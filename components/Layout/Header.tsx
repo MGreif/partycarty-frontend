@@ -19,7 +19,7 @@ const Header = () => {
         </span>
         <span className={classes.title}>
           <Link className={classes.link} href="/">
-            PartyCarty - Clever Shopping Lists
+            <span>PartyCarty - {t('slogan')}</span>
           </Link>
         </span>
         <span className={classes.meta}>{p.version}</span>

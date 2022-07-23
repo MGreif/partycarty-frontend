@@ -124,7 +124,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
       />
       <Autocomplete
         className={classes.autocomplete}
-        placeholder="Maggi, Snickers, Whiskey ...."
+        placeholder={t('add-placeholder')}
         itemComponent={AutoCompleteItem}
         data={autocompleteItems}
         maxLength={50}

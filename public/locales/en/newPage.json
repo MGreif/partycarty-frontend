@@ -20,5 +20,7 @@
   "happy-shopping": "Happy Shopping!",
   "description-placeholder": "Shopping list for Isabella's birthday",
   "recent-lists": "Recently visited lists",
-  "recent-lists-info": "When visiting a list, it is saved in the local storage of your browser. We do not track/save any information of you."
+  "recent-lists-info": "When visiting a list, it is saved in the local storage of your browser. We do not track/save any information of you.",
+  "slogan": "Clever Shopping Lists"
+
 }

@@ -33,8 +33,12 @@ const NewListForm = () => {
         }}
         validation={(values) => {
           let errors: any = {}
+          if (!values.description)
+            errors.description = tcommon('validation.is-required')
           if (values.description.length > 100)
-            errors.description = 'Please use less than 100 characters'
+            errors.description = tcommon('validation.less-characters', {
+              amount: '100',
+            })
           return errors
         }}
       >
