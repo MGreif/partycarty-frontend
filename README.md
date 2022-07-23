@@ -25,3 +25,4 @@ The Production build of PartyCarty can be found [here](https://partycarty.greif.
  - [Mantine](https://mantine.dev/)
  - [Superagent](https://www.npmjs.com/package/superagent) >> might change to ky.js later due to Fetch API implementation
  - [Formik](https://formik.org/)
+ - [next-i18next](https://github.com/i18next/next-i18next)

@@ -1,6 +1,6 @@
 {
   "create": "Create",
-  "description": "Description",
+  "description": "Title",
   "imprint": "imprint",
   "validation": {
     "less-characters": "Please insert less than {{amount}} characters.",

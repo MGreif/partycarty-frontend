@@ -17,12 +17,12 @@
 .title {
   font-weight: bold;
   font-size: 18pt;
+  cursor: pointer;
 }
 
 .link {
   text-decoration: none;
   color: white;
-  cursor: pointer;
 }
 
 
