@@ -2,26 +2,17 @@ import classes from './NewPage.module.css'
 import NewListForm from './NewListForm'
 import { Divider } from '@mantine/core'
 import { LastVisitedLists } from './LastVisitedLists'
+import { useTranslation } from 'next-i18next'
 
 const NewPage = () => {
+  const { t } = useTranslation('newPage')
   return (
     <div className={classes.container}>
-      <h1 className={classes.centered}>👉 Create your own List for free! 👈</h1>
+      <h1 className={classes.centered}>{t('title-text')}</h1>
       <article className={classes.article}>
-        <p>
-          Using PartyCarty, you can create a shopping list which can be shared
-          around friends, family or even party groups! 🎉🎉🎉
-        </p>
-        <p>
-          Everyone knows how stressful and confusing party-shopping (or shopping
-          in general) could be. To evade this issue, you can create a PartyCarty
-          in advance so all guests can add what they want and see what someone
-          else is already buying.
-        </p>
-        <p>
-          Guests can vote for items so the person, thats buying the item can buy
-          multiple pieces so other guests wont steal your golden piece!
-        </p>
+        <p>{t('intro')}</p>
+        <p>{t('party-management')}</p>
+        <p>{t('voting')}</p>
       </article>
       <LastVisitedLists />
       <Divider />
@@ -30,43 +21,35 @@ const NewPage = () => {
       <div>
         <section className={classes.flexSection}>
           <div>
-            <h2>Instructions</h2>
+            <h2>{t('instructions')}</h2>
             <ol>
-              <li>Pick a fitting description/name of the event</li>
-              <li>Share the link with your friends</li>
+              <li>{t('name')}</li>
+              <li>{t('share')}</li>
               <li>
-                All of your friends can
+                {t('everyone-can')}
                 <ul style={{ listStyle: 'none', paddingLeft: '1em' }}>
-                  <li>➕ Add new Items</li>
-                  <li>✔️ Set items as bought</li>
-                  <li>🗳️ Vote for items</li>
+                  <li>{t('add')}</li>
+                  <li>{t('set-as-bought')}</li>
+                  <li>{t('vote')}</li>
                 </ul>
               </li>
               <li>
-                <b>Successfully and easily buy all desired items 🥳</b>
+                <b>{t('buy-desired-items')}</b>
               </li>
             </ol>
           </div>
           <div>
-            <h2>Always expanding item-list</h2>
+            <h2>{t('expanding-items')}</h2>
+            <p>{t('user-experience')}</p>
+            <p>{t('categorized')}</p>
             <p>
-              We try to achieve the best user-experience by providing an quickly
-              expanding item-list to autofill your items
-            </p>
-            <p>
-              Each item is categorized and will be shown in a categorized view
-              so its easier to find the items inside of a store
-            </p>
-            <p>
-              if you do not get an autofill options, please feel free to{' '}
-              <strong>add your product</strong> using the &#34;+&#34; button at
-              the bottom of the autofill
+              {t('autofil1')} <strong>{t('autofil2')}</strong> {t('autofil3')}
             </p>
           </div>
         </section>
       </div>
       <Divider />
-      <h3 style={{ margin: '1em auto' }}>Happy Shopping!</h3>
+      <h3 style={{ margin: '1em auto' }}>{t('happy-shopping')}</h3>
     </div>
   )
 }

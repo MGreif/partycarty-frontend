@@ -5,6 +5,7 @@ import { GenericForm } from './GenericForm'
 import superagent from 'superagent'
 import { buildApiLink, buildLink } from '../libs/linkBuilder'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
 
 type TNewListForm = {
   description: string
@@ -13,6 +14,8 @@ type TNewListForm = {
 
 const NewListForm = () => {
   const router = useRouter()
+  const { t } = useTranslation('newPage')
+  const { t: tcommon } = useTranslation('common')
 
   return (
     <div className={classes.formContainer}>
@@ -44,12 +47,12 @@ const NewListForm = () => {
           isSubmitting,
         }: any) => (
           <>
-            <InputWrapper label="Description">
+            <InputWrapper label={tcommon('description')}>
               <Input
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.description}
-                placeholder="Shopping list for lisa's birthday"
+                placeholder={t('description-placeholder')}
                 name="description"
                 maxLength={100}
               />
@@ -71,7 +74,7 @@ const NewListForm = () => {
               disabled={isSubmitting}
               style={{ margin: '1em 0' }}
             >
-              Create
+              {tcommon('create')}
             </Button>
           </>
         )}

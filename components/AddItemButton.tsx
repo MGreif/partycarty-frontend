@@ -10,6 +10,7 @@ import { useFetchBuyableItems } from '../hooks/useFetchBuyableItems'
 import { CATEGORIES, IList } from './List'
 import { useListContext } from '../hooks/useListContext'
 import { useMemo } from 'react'
+import { useTranslation } from 'next-i18next'
 
 interface IAddItemButtonProps {
   onAdd: (buyableItem: IBuyableItem) => void
@@ -31,6 +32,8 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
   const [item, setItem] = useState<IBuyableItem & { value: string }>()
   const [searchTermDebounce] = useDebouncedValue(searchTerm, 500)
+
+  const { t } = useTranslation('list')
 
   useEffect(() => {
     if (item && item.name !== searchTerm) {
@@ -114,7 +117,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
           ...x,
           value: x.name,
           fluid: x.fluid.toString(),
-          group: CATEGORIES[x.category].label,
+          group: t('categories.' + CATEGORIES[x.category].value),
         })),
       { value: searchTerm || '', _id: 'add-button' },
     ],
@@ -131,7 +134,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
       />
       <Autocomplete
         className={classes.autocomplete}
-        placeholder="Banana, Snickers, Whiskey ...."
+        placeholder="Maggi, Snickers, Whiskey ...."
         itemComponent={AutoCompleteItem}
         data={autocompleteItems}
         maxLength={50}

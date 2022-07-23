@@ -1,5 +1,6 @@
 import NewListForm from '../components/NewListForm'
 import NewPage from '../components/NewPage'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const NewList = () => {
   return (
@@ -12,3 +13,11 @@ const NewList = () => {
 }
 
 export default NewList
+
+export async function getServerSideProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'newPage'])),
+    },
+  }
+}

@@ -1,7 +1,9 @@
 import classes from './Footer.module.css'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation('common')
   return (
     <footer className={classes.container}>
       <span>
@@ -9,7 +11,7 @@ const Footer = () => {
       </span>
       <span>|</span>
       <span>
-        <Link href="/imprint">Imprint</Link>
+        <Link href="/imprint">{t('imprint')}</Link>
       </span>
     </footer>
   )

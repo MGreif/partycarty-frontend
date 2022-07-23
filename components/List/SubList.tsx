@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next'
 import { CATEGORIES } from '.'
 import { IListItem, ListItem } from './ListItem'
 import classes from './SubList.module.css'
@@ -13,6 +14,7 @@ const SubList: React.FC<ISubListProps> = ({
   category,
   setListItems,
 }) => {
+  const { t } = useTranslation('list')
   const correspondingItems = listItems
     .filter((item) => item.buyableItem.category === category)
     .sort((a, b) => a.buyableItem.name.localeCompare(b.buyableItem.name))
@@ -23,7 +25,8 @@ const SubList: React.FC<ISubListProps> = ({
     <div className={classes.container}>
       <div className={classes.header}>
         <span>
-          {CATEGORIES[category].icon} {CATEGORIES[category].label}{' '}
+          {CATEGORIES[category].icon}{' '}
+          {t('categories.' + CATEGORIES[category].value)}{' '}
           {CATEGORIES[category].icon}
         </span>
       </div>

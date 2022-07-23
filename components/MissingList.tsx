@@ -1,24 +1,23 @@
 import { Button, Divider } from '@mantine/core'
 import { Text } from '@mantine/core'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
 import classes from './MissingList.module.css'
 
 const MissingList = () => {
   const router = useRouter()
+  const { t } = useTranslation('list')
   const handleClick = () => {
     router.push('/')
   }
   return (
     <div className={classes.container}>
-      <h1>This list does not exist</h1>
-      <p>
-        A list with this id has either not been created or been removed due to
-        inactivity
-      </p>
+      <h1>{t('no-list')}</h1>
+      <p>{t('deleted-list')}</p>
       <Divider />
       <div className={classes.buttonContainer}>
         <span>👉</span>
-        <Button onClick={handleClick}>Back to home</Button>
+        <Button onClick={handleClick}>{t('back-home')}</Button>
         <span>👈</span>
       </div>
     </div>

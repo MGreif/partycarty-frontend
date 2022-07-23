@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Layout from '../components/Layout'
 import Head from 'next/head'
 import { MantineProvider } from '@mantine/core'
+import { appWithTranslation } from 'next-i18next'
 
 function App(props: AppProps) {
   const { Component, pageProps } = props
@@ -69,4 +70,4 @@ function App(props: AppProps) {
   )
 }
 
-export default App
+export default appWithTranslation(App)

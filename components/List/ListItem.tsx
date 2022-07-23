@@ -11,6 +11,7 @@ import { useVotedIdsSessionStorage } from '../../hooks/useVotedIdsSessionStorage
 import { useState } from 'react'
 import { editListItem } from '../../gateway/rest/editListItem'
 import { deleteListItem } from '../../gateway/rest/deleteListItem'
+import { useTranslation } from 'next-i18next'
 
 export interface IListItem {
   _id: string
@@ -45,6 +46,7 @@ const ListItem: React.FC<IListItemProps> = ({
   const userHasInitiallyVoted = votedIds.includes(listItem._id)
   const [isBought, setIsBought] = useState<boolean>(listItem.bought)
   const [isVoted, setIsVoted] = useState<boolean>(userHasInitiallyVoted)
+  const { t } = useTranslation('list')
 
   useEffect(() => {
     setIsVoted(userHasInitiallyVoted)
@@ -104,7 +106,7 @@ const ListItem: React.FC<IListItemProps> = ({
       <div className={classes.name}>
         <Text>{listItem.buyableItem.name}</Text>
         <Text size="xs" color="dimmed">
-          Qty: {listItem.quantity}
+          {t('quantity')} {listItem.quantity}
         </Text>
       </div>
       {(listItem.votes || isVoted) && (
@@ -128,7 +130,7 @@ const ListItem: React.FC<IListItemProps> = ({
           backgroundColor: isBought ? 'green' : '#D9D9D9',
         }}
       >
-        Bought
+        {t('bought')}
       </Button>
       <Button
         onClick={() => handleDelete(listItem._id)}

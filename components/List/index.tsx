@@ -1,7 +1,7 @@
 import { Container } from '@mantine/core'
 import Head from 'next/head'
-import { useEffect } from 'react'
-import { useCallback, useState } from 'react'
+import { useEffect, useCallback, useState } from 'react'
+import { useTranslation } from 'next-i18next'
 import { createListItem } from '../../gateway/rest/createListItem'
 import { deleteListItem } from '../../gateway/rest/deleteListItem'
 import { editListItem } from '../../gateway/rest/editListItem'
@@ -88,6 +88,7 @@ export const CATEGORIES = {
 
 const List = () => {
   const list: IList = useListContext()
+  const { t } = useTranslation('list')
 
   const [listItems, setListItems] = useState<IListItem[]>(list?.items || [])
   const isBreakpoint = useMediaQuery(880)
@@ -209,7 +210,7 @@ const List = () => {
           <AddItemButton onAdd={addListItem} />
           <div className={classes.list}>
             {listItems.length === 0 && (
-              <span className={classes.noItems}>No Items ...</span>
+              <span className={classes.noItems}>{t('no-items')}</span>
             )}
             {Object.entries(CATEGORIES).map(([category, value]: [any, any]) => {
               return (
@@ -223,11 +224,9 @@ const List = () => {
             })}
           </div>
         </div>
-        {isBreakpoint || (
-          <div style={{ width: '300px' }} className={classes.googleAd}>
-            <GoogleAdVertical slotId="1838956353" />
-          </div>
-        )}
+        <div style={{ width: '300px' }} className={classes.googleAd}>
+          <GoogleAdVertical slotId="1838956353" />
+        </div>
       </div>
     </div>
   )
