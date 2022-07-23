@@ -49,7 +49,7 @@ const NewListForm = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.description}
-                placeholder="Shopping cart for sophis birthday"
+                placeholder="Shopping list for lisa's birthday"
                 name="description"
                 maxLength={100}
               />

@@ -44,9 +44,7 @@ const ListItem: React.FC<IListItemProps> = ({
   const votedIds = useVotedIdsSessionStorage(list._id)
   const userHasInitiallyVoted = votedIds.includes(listItem._id)
   const [isBought, setIsBought] = useState<boolean>(listItem.bought)
-  console.log('usevoted', userHasInitiallyVoted)
   const [isVoted, setIsVoted] = useState<boolean>(userHasInitiallyVoted)
-  console.log('isvoted', isVoted, userHasInitiallyVoted)
 
   useEffect(() => {
     setIsVoted(userHasInitiallyVoted)
@@ -93,7 +91,6 @@ const ListItem: React.FC<IListItemProps> = ({
     }
   }
 
-  console.log(listItem)
   return (
     <Group className={classes.container} position="apart" noWrap spacing="xs">
       <div className={classes.category}>
