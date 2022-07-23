@@ -103,22 +103,12 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
 
   const autocompleteItems = useMemo(
     () => [
-      ...buyableItems
-        .sort((a: IBuyableItem, b: IBuyableItem) => {
-          if (a.category < b.category) {
-            return -1
-          }
-          if (a.category > b.category) {
-            return 1
-          }
-          return 0
-        })
-        .map((x: IBuyableItem) => ({
-          ...x,
-          value: x.name,
-          fluid: x.fluid.toString(),
-          //         group: t('categories.' + CATEGORIES[x.category].value),
-        })),
+      ...buyableItems.map((x: IBuyableItem) => ({
+        ...x,
+        value: x.name,
+        fluid: x.fluid.toString(),
+        group: t('categories.' + CATEGORIES[x.category].value),
+      })),
       { value: searchTerm || '', _id: 'add-button' },
     ],
     [buyableItems]
