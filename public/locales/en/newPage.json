@@ -19,5 +19,6 @@
   "autofil3": "using the + button at the bottom of the autofill",
   "happy-shopping": "Happy Shopping!",
   "description-placeholder": "Shopping list for Isabella's birthday",
-  "recent-lists": "Recently visited lists"
+  "recent-lists": "Recently visited lists",
+  "recent-lists-info": "When visiting a list, it is saved in the local storage of your browser. We do not track/save any information of you."
 }

@@ -14,7 +14,7 @@ const Header = () => {
       <Container fluid className={classes.container}>
         <span className={classes.meta}>
           <Link locale={i18n.language === 'de' ? 'en' : 'de'} href={currentURI}>
-            {i18n.language === 'de' ? 'EN' : 'GER'}
+            {i18n.language === 'de' ? '🇺🇸 EN' : '🇩🇪 GER'}
           </Link>
         </span>
         <span className={classes.title}>

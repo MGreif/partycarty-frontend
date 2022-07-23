@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Popover, Badge, createStyles } from '@mantine/core'
+import { useTranslation } from 'next-i18next'
 
 const useStyles = createStyles({
   container: {
@@ -21,6 +22,7 @@ const useStyles = createStyles({
 
 const Info = () => {
   const [open, setOpen] = useState<boolean>(false)
+  const { t } = useTranslation('newPage')
   const { classes } = useStyles()
   return (
     <Popover
@@ -43,8 +45,7 @@ const Info = () => {
         </div>
       }
     >
-      When visiting a list, it is saved in the local storage of your browser. We
-      do not track/save any information of you.
+      {t('recent-lists-info')}
     </Popover>
   )
 }
