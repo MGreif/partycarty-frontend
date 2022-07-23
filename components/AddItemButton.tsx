@@ -64,9 +64,9 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
 
             <div>
               <Text>{name}</Text>
-              {/*<Text size="xs" color="dimmed">
-                {CATEGORIES[category].label}
-        </Text>*/}
+              <Text size="xs" color="dimmed">
+                {t('categories.' + CATEGORIES[category].value)}
+              </Text>
             </div>
           </Group>
         ) : (
