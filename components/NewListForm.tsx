@@ -5,7 +5,7 @@ import { GenericForm } from './GenericForm'
 import superagent from 'superagent'
 import { buildApiLink, buildLink } from '../libs/linkBuilder'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 type TNewListForm = {
   description: string

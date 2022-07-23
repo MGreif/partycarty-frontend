@@ -1,6 +1,6 @@
 import { Divider, Popover, Badge } from '@mantine/core'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { useLastVisitedListsLocalStorage } from '../../hooks/useLastVisitedListsLocalStorage'
 import classes from './index.module.css'
 import { Info } from './Info'
