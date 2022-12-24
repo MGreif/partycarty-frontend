@@ -29,23 +29,24 @@ const Info = () => {
       opened={open}
       onClose={() => setOpen(false)}
       position="top"
-      placement="center"
       withArrow
       trapFocus={false}
       closeOnEscape={false}
       width={260}
-      styles={{ body: { pointerEvents: 'none' } }}
-      target={
-        <div
+      styles={{ dropdown: { pointerEvents: "none" }}}
+    >
+      <Popover.Target>
+      <div
           className={classes.container}
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
         >
           <span>?</span>
         </div>
-      }
-    >
-      {t('recent-lists-info')}
+      </Popover.Target>
+      <Popover.Dropdown>
+        {t('recent-lists-info')}
+      </Popover.Dropdown>
     </Popover>
   )
 }

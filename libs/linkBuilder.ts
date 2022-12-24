@@ -1,5 +1,5 @@
 const BASE_URL = "/"
-const BASE_API_URL = process.env.NEXT_PUBLIC_SERVICE_URI
+const BASE_API_URL = process.env.NEXT_PUBLIC_SERVICE_URI || "/api"
 
 
 export const buildLink = (value: string): string => {

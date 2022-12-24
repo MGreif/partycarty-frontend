@@ -1,4 +1,4 @@
-import { Autocomplete, Button, InputWrapper, Text } from '@mantine/core'
+import { Autocomplete, Button, Text } from '@mantine/core'
 import { createRef, forwardRef, useEffect, useRef, useState } from 'react'
 import { IBuyableItem } from './List/ListItem'
 import classes from './AddItemButton.module.css'
@@ -124,7 +124,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
       />
       <Autocomplete
         className={classes.autocomplete}
-        placeholder={t('add-placeholder')}
+        placeholder={t('add-placeholder') || ""}
         itemComponent={AutoCompleteItem}
         data={autocompleteItems}
         maxLength={50}

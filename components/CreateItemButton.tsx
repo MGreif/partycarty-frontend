@@ -1,5 +1,5 @@
 import { Checkbox } from '@mantine/core'
-import { Button, Group, Input, InputWrapper, Modal } from '@mantine/core'
+import { Button, Group, Input, Modal } from '@mantine/core'
 import { Select } from '@mantine/core'
 import { useTranslation } from 'next-i18next'
 import { randomString } from '../libs/mockGenerator'
@@ -54,7 +54,7 @@ const CreateItemButton = ({
           isSubmitting,
         }: any) => (
           <>
-            <InputWrapper label="Name">
+            <Input.Wrapper label="Name">
               <Input
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -64,8 +64,8 @@ const CreateItemButton = ({
                 maxLength={50}
               />
               {errors.name && touched.name && errors.name}
-            </InputWrapper>
-            <InputWrapper label="category">
+            </Input.Wrapper>
+            <Input.Wrapper label="category">
               <Select
                 onChange={(e) => {
                   handleChange({
@@ -81,8 +81,8 @@ const CreateItemButton = ({
                 data={Object.values(CATEGORIES)}
               />
               {errors.category && touched.category && errors.category}
-            </InputWrapper>
-            <InputWrapper label="Is Fluid">
+            </Input.Wrapper>
+            <Input.Wrapper label="Is Fluid">
               <Checkbox
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -90,7 +90,7 @@ const CreateItemButton = ({
                 name="fluid"
               />
               {errors.fluid && touched.fluid && errors.fluid}
-            </InputWrapper>
+            </Input.Wrapper>
             <Button
               type="submit"
               disabled={isSubmitting}

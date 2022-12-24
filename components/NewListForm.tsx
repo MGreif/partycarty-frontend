@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input, InputWrapper } from '@mantine/core'
+import { Button, Checkbox, Input } from '@mantine/core'
 import { useState } from 'react'
 import classes from './NewListForm.module.css'
 import { GenericForm } from './GenericForm'
@@ -51,7 +51,7 @@ const NewListForm = () => {
           isSubmitting,
         }: any) => (
           <>
-            <InputWrapper label={tcommon('description')}>
+            <Input.Wrapper label={tcommon('description')}>
               <Input
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -61,7 +61,7 @@ const NewListForm = () => {
                 maxLength={100}
               />
               {errors.description && touched.description && errors.description}
-            </InputWrapper>
+            </Input.Wrapper>
             {/*
               <InputWrapper label="Editable">
               <Checkbox
