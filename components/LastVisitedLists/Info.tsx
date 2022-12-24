@@ -6,6 +6,8 @@ const useStyles = createStyles({
   container: {
     fontSize: '8pt',
     lineHeight: '20px',
+    display: "block",
+    position: "relative",
     border: '1px solid #cccccc',
     borderRadius: '20px',
     width: '20px',
@@ -17,6 +19,12 @@ const useStyles = createStyles({
       right: 0,
       bottom: 0,
     },
+  },
+  infoText: {
+    fontSize: "12pt",
+    fontStyle: "normal",
+    fontWeight: 500,
+    lineHeight: 1.15
   },
 })
 
@@ -36,16 +44,16 @@ const Info = () => {
       styles={{ dropdown: { pointerEvents: "none" }}}
     >
       <Popover.Target>
-      <div
+      <span
           className={classes.container}
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
         >
           <span>?</span>
-        </div>
+        </span>
       </Popover.Target>
       <Popover.Dropdown>
-        {t('recent-lists-info')}
+        <span className={classes.infoText}>{t('recent-lists-info')}</span>
       </Popover.Dropdown>
     </Popover>
   )

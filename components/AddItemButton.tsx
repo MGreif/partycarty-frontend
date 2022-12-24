@@ -127,6 +127,7 @@ const AddItemButton = ({ onAdd }: IAddItemButtonProps) => {
         placeholder={t('add-placeholder') || ""}
         itemComponent={AutoCompleteItem}
         data={autocompleteItems}
+        zIndex={2}
         maxLength={50}
         onItemSubmit={handleChange}
         onChange={(value: string) => setSearchTerm(value)}

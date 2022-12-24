@@ -16,7 +16,9 @@ const LastVisitedLists = () => {
       <Divider />
       <div className={classes.container}>
         <h2>
-          {t('recent-lists')} <Info />
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5em"}}>
+          {t('recent-lists')}<Info />
+          </div>
         </h2>
         {Object.entries(lists).map(([id, description]) => (
           <LastList key={id} id={id} description={description} />

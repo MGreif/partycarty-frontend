@@ -2,12 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 
 .header {
   background-color: #009CDF;
   color: white;
-
 }
 
 .container > * {
@@ -33,5 +33,11 @@
   }
   .meta {
     font-size: 8pt;
+  }
+}
+
+@media (max-width: 400px) {
+  .slogan {
+    display: none
   }
 }

@@ -10,7 +10,7 @@ const Header = () => {
   const router = useRouter()
   const currentURI = router.asPath
   return (
-    <HeaderMantine height={60} p="xs" className={classes.header}>
+    <HeaderMantine zIndex={3} height={60} p="xs" className={classes.header}>
       <Container fluid className={classes.container}>
         <span className={classes.meta}>
           <Link locale={i18n.language === 'de' ? 'en' : 'de'} href={currentURI}>
@@ -19,7 +19,7 @@ const Header = () => {
         </span>
         <span className={classes.title}>
           <Link className={classes.link} href="/">
-            <span>PartyCarty - {t('slogan')}</span>
+            <span>PartyCarty<span className={classes.slogan}> - {t('slogan')}</span></span>
           </Link>
         </span>
         <span className={classes.meta}>{p.version}</span>
